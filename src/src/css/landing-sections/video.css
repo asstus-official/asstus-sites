@@ -1,0 +1,13 @@
+.video-js.vjs-playing .vjs-big-play-button {
+  display: none !important;
+}
+
+.video-js.vjs-paused .vjs-big-play-button {
+  display: inline-block !important;
+}
+
+.video-player {
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  height: 100%;
+}

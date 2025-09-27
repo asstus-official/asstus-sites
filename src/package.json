@@ -1,51 +1,85 @@
 {
-	"name": "src",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"docusaurus": "docusaurus",
-		"start": "docusaurus start",
-		"build": "docusaurus build",
-		"swizzle": "docusaurus swizzle",
-		"deploy": "yarn run build && wrangler pages deploy ./build",
-		"clear": "docusaurus clear",
-		"serve": "docusaurus serve",
-		"write-translations": "docusaurus write-translations",
-		"write-heading-ids": "docusaurus write-heading-ids",
-		"typecheck": "tsc",
-		"preview": "yarn run build && wrangler pages dev ./build"
-	},
-	"dependencies": {
-		"@docusaurus/core": "3.8.1",
-		"@docusaurus/preset-classic": "3.8.1",
-		"@mdx-js/react": "^3.0.0",
-		"clsx": "^2.0.0",
-		"prism-react-renderer": "^2.3.0",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
-	},
-	"devDependencies": {
-		"@docusaurus/module-type-aliases": "3.8.1",
-		"@docusaurus/tsconfig": "3.8.1",
-		"@docusaurus/types": "3.8.1",
-		"@types/react": "^19.1.14",
-		"@types/react-dom": "^19.1.9",
-		"typescript": "~5.6.2",
-		"wrangler": "^4.40.2"
-	},
-	"browserslist": {
-		"production": [
-			">0.5%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 3 chrome version",
-			"last 3 firefox version",
-			"last 5 safari version"
-		]
-	},
-	"engines": {
-		"node": ">=18.0"
-	}
+  "name": "website",
+  "version": "2.0.0",
+  "scripts": {
+    "examples": "docusaurus-examples",
+    "start": "docusaurus start",
+    "build": "node --max-old-space-size=4096 ../node_modules/@docusaurus/core/bin/docusaurus build",
+    "publish-gh-pages": "docusaurus-publish",
+    "write-translations": "docusaurus-write-translations",
+    "version": "docusaurus-version",
+    "rename-version": "docusaurus-rename-version",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.6",
+    "@svgr/webpack": "^5.5.0",
+    "@tsconfig/docusaurus": "^1.0.4",
+    "@types/react": "^17.0.20",
+    "@types/react-helmet": "^6.1.2",
+    "@types/react-lazy-load-image-component": "^1.5.2",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/styled-components": "^5.1.24",
+    "@types/video.js": "^7.3.40",
+    "babel-plugin-styled-components": "^2.0.6",
+    "stylelint-config-standard-scss": "^4.0.0",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/pro-theme": "0.0.27",
+    "@chakra-ui/react": "^1.8.8",
+    "@docusaurus/core": "2.0.0-beta.6",
+    "@docusaurus/logger": "^2.0.0-rc.1",
+    "@docusaurus/preset-classic": "2.0.0-beta.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@iconify/icons-akar-icons": "^1.2.8",
+    "@iconify/react": "^3.2.2",
+    "@use-gesture/react": "^10.2.16",
+    "change-case": "^4.1.2",
+    "clsx": "^1.1.1",
+    "docusaurus-plugin-sass": "^0.2.2",
+    "fitty": "^2.3.6",
+    "framer-motion": "6.5.1",
+    "gsap": "^3.7.1",
+    "lethargy": "^1.0.9",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "raw-loader": "^4.0.2",
+    "rc-image": "^5.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^5.5.0",
+    "react-lazy-load-image-component": "^1.5.4",
+    "react-spring": "^9.4.5",
+    "react-transition-group": "^4.4.1",
+    "react-use": "^17.4.0",
+    "remark": "^12.0.0",
+    "remark-mdx": "^1.6.22",
+    "sass": "^1.53.0",
+    "styled-components": "^5.3.3",
+    "swiper": "^11.2.6",
+    "three": "^0.131.3",
+    "unist-util-visit": "^2.0.2",
+    "video.js": "^7.19.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  }
 }

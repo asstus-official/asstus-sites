@@ -1,0 +1,42 @@
+{
+  "docs": {
+    "Community": [
+      "join",
+      {
+        "type": "category",
+        "label": "Contribute to APISIX",
+        "items": [
+          "submit-issue",
+          "contributor-guide",
+          "blog",
+          "security",
+          "committer-guide"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Process and style guides",
+        "items": [
+          "documentation-style-guide",
+          "release-guide"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Events",
+        "link": {
+          "type": "generated-index",
+          "title": "Docusaurus Guides",
+          "description": "Learn about the most important Docusaurus concepts!",
+          "slug": "/docs/general/events"
+        },
+        "items": [
+          "events/2025-apisix-meetup-shenzhen-best-practices-for-api-and-ai-gateways",
+          "events/2023-apisix-meetup-singapore",
+          "events/2023-apisix-meetup-malaysia",
+          "events/2022-apisix-meetups"
+        ]
+      }
+    ]
+  }
+}
