@@ -49,7 +49,7 @@ export default {
     'hello',
     {
       type: 'category',
-      label: 'Tutorial',
+      label: 'Hiring',
       items: ['hiring-basics/create-a-document'],
     },
   ],
