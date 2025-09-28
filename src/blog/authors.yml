@@ -1,25 +1,25 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
+asstus:
+  name: Asstus Offical
+  title: orange sidekick, virtual assitant
+  url: https://www.asstus.com
+  image_url: https://asstus.com/img/logo.svg
   page: true
   socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
+    x: asstus_offical
+    linkedin: asstus_offical
+    github: asstus-official
+    newsletter: https://www.asstus.com
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+phil:
+  name: Phil Pham
+  title: black sidekick, founding engineer
+  url: https://phamtanph.uk
+  image_url: https://github.com/phuctanpham.png
   page:
     # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    permalink: '/all-phil-articles'
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    x: phuctanpham
+    linkedin: phuctanpham
+    github: phuctanpham 
+    newsletter: https://phamtanph.uk
