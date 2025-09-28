@@ -12,32 +12,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Simple implementation',
     gifSrc: require('@site/static/img/undraw_docusaurus_mountain.gif').default,
     description: (
       <>
-        Asstus was designed from the ground up to be easily cleaned raws data and 
+        Asstus was designed from the ground up to be easily cleaned all messy raws data and 
         used to get your dashboard up and running quickly even low tech-savvy
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'intelligent traceability',
+    Svg: require('@site/static/img/undraw_docusaurus_tree.gif').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Asstus lets you focus on hidden threats, and we&apos;ll do the chores. Go
+        ahead and move messy raws data into our application.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Cognitive Assistant',
+    Svg: require('@site/static/img/undraw_docusaurus_react.gif').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Co-train to customize report's charts by chatting with our Cognitive Expert Engine which empowered Asstus can
+        be learnt your knowledge for reusing other same sittuations.
       </>
     ),
   },
