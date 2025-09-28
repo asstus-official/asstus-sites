@@ -12,8 +12,8 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Simple implementation',
-    gifSrc: require('@site/static/img/undraw_docusaurus_mountain.gif').default,
+    title: 'Simple Implementation',
+    gifSrc: require('@site/static/img/2ndSection-excel.gif').default,
     description: (
       <>
         Asstus was designed from the ground up to be easily cleaned all messy raws data and 
@@ -22,8 +22,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'intelligent traceability',
-    gifSrc: require('@site/static/img/undraw_docusaurus_tree.gif').default,
+    title: 'Intelligent Traceability',
+    gifSrc: require('@site/static/img/2ndSection-map.gif').default,
     description: (
       <>
         Asstus lets you focus on hidden threats, and we&apos;ll do the chores. Go
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Cognitive Assistant',
-    gifSrc: require('@site/static/img/undraw_docusaurus_react.gif').default,
+    gifSrc: require('@site/static/img/2ndSection-chat.gif').default,
     description: (
       <>
         Co-train to customize report's charts by chatting with our Cognitive Expert Engine which empowered Asstus can
