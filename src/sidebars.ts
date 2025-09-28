@@ -24,7 +24,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Hiring',
-      items: ['hiring-founding-engineers/create-a-document'],
+      items: ['founding-engineers/create-a-document'],
     },
   ],
    */
