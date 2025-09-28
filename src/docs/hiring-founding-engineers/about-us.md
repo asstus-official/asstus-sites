@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+# About us
+
 ## Founding Engineers: What in the Actual Heck Do They Do? 🦄
 
 For many startup founders, especially the non-technical ones who still think **"cloud"** is just a fluffy thing in the sky, the role of a **Founding Engineer** is a glorious, confusing enigma. What is this mythical creature's job description? What outrageous things are we supposed to expect? And, most importantly, how much gold do we have to pay them? 💰
