@@ -5,18 +5,19 @@ import styles from './2ndSection.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
+  gifSrc?: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.gif').default,
+    gifSrc: require('@site/static/img/undraw_docusaurus_mountain.gif').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Asstus was designed from the ground up to be easily cleaned raws data and 
+        used to get your dashboard up and running quickly even low tech-savvy
       </>
     ),
   },
@@ -42,11 +43,19 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, gifSrc, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {gifSrc ? (
+          <img 
+            src={gifSrc} 
+            alt={title}
+            className={styles.featureGif} 
+          />
+        ) : (
+          <Svg className={styles.featureSvg} role="img" />
+        )}
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
