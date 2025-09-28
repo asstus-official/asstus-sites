@@ -1,14 +1,14 @@
 asstus:
   name: Asstus Offical
   title: orange sidekick, virtual assitant
-  url: https://www.asstus.com
+  url: https://asstus.com
   image_url: https://asstus.com/img/logo.svg
   page: true
   socials:
     x: asstus_offical
     linkedin: asstus_offical
     github: asstus-official
-    newsletter: https://www.asstus.com
+    newsletter: https://asstus.com
 
 phil:
   name: Phil Pham
