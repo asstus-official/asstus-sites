@@ -18,7 +18,7 @@ export default function ThirdSection(): ReactNode {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Wanna join us to be a sidekick! ⏱️
+            Wanna be a sidekick! ⏱️
           </Link>
         </div>
       </div>
