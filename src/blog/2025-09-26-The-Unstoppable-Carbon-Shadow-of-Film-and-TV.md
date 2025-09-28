@@ -1,6 +1,6 @@
 ---
-slug: first-blog-post
-title: First Blog Post
+slug: The-Unstoppable-Carbon-Shadow-of-Film-and-TV
+title: The Unstoppable Carbon Shadow of Film and TV
 authors: [phil, asstus]
 tags: [film, television]
 ---
