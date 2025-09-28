@@ -11,14 +11,14 @@ export default function FirstSection(): ReactNode {
           <div className={styles.leftColumn}>
             <div className={styles.content}>
               <h1 className={styles.tagline}>
-                Build beautiful documentation sites with ease
+                Do you know how much carbon emission from your film production yet?
               </h1>
               <div className={styles.buttons}>
                 <button className={clsx(styles.button, styles.buttonSecondary)}>
-                  Learn More
+                  No, Consult me!
                 </button>
                 <button className={clsx(styles.button, styles.buttonPrimary)}>
-                  Get Started
+                  Yes, Show me demo!
                 </button>
               </div>
             </div>
