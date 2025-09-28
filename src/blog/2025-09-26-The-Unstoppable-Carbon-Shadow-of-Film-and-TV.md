@@ -2,7 +2,7 @@
 slug: first-blog-post
 title: First Blog Post
 authors: [phil, asstus]
-tags: [film, asstus]
+tags: [film, television]
 ---
 
 The Unstoppable Carbon Shadow of Film and TV.
