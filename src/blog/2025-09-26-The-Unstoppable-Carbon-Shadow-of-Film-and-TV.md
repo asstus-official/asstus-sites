@@ -5,15 +5,11 @@ authors: [phil, asstus]
 tags: [film, television]
 ---
 
-The Unstoppable Carbon Shadow of Film and TV.
-
-<!-- truncate -->
-
 # Sustainable Production Alliance (SPA) Carbon Emissions Report Summary (2021)
 
 This report, released by the **Sustainable Production Alliance (SPA)** in March 2021, uses production data collected between 2016 and 2019 to establish an industry baseline for carbon emissions in film and television. The data was gathered using the Production Environmental Accounting Report (PEAR) tool.
 
----
+<!-- truncate -->
 
 ## 1. Major Sources of Emissions
 
@@ -60,4 +56,4 @@ The findings highlight that priority areas for emissions reduction in the film a
 2.  **Air Travel:** Implementing policies to reduce and offset travel impact.
 3.  **Utilities:** Utilizing cleaner energy sources for stages and offices.  
 
-Resource: [Link (https://greenproductionguide.com/wp-content/uploads/2021/04/SPA-Carbon-Emissions-Report.pdf][Link]
+Resource: SPA Carbon Emissions Report
