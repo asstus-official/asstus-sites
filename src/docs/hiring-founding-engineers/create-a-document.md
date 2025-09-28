@@ -50,7 +50,7 @@ export default {
     {
       type: 'category',
       label: 'Hiring',
-      items: ['hiring-basics/create-a-document'],
+      items: ['hiring-fouding-engineers/create-a-document'],
     },
   ],
 };
