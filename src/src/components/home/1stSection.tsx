@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
-import styles from './styles.module.css';
+import styles from './1stSection.module.css';
 
 export default function FirstSection(): ReactNode {
   return (
@@ -11,14 +11,14 @@ export default function FirstSection(): ReactNode {
           <div className={styles.leftColumn}>
             <div className={styles.content}>
               <h1 className={styles.tagline}>
-                Do you know how much carbon emission from your film production yet?
+                Build beautiful documentation sites with ease
               </h1>
               <div className={styles.buttons}>
                 <button className={clsx(styles.button, styles.buttonSecondary)}>
-                  No, Consult me!
+                  Learn More
                 </button>
                 <button className={clsx(styles.button, styles.buttonPrimary)}>
-                  Yes, Show me demo!
+                  Get Started
                 </button>
               </div>
             </div>
