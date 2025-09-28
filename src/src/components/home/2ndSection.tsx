@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'intelligent traceability',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.gif').default,
+    gifSrc: require('@site/static/img/undraw_docusaurus_tree.gif').default,
     description: (
       <>
         Asstus lets you focus on hidden threats, and we&apos;ll do the chores. Go
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Cognitive Assistant',
-    Svg: require('@site/static/img/undraw_docusaurus_react.gif').default,
+    gifSrc: require('@site/static/img/undraw_docusaurus_react.gif').default,
     description: (
       <>
         Co-train to customize report's charts by chatting with our Cognitive Expert Engine which empowered Asstus can
