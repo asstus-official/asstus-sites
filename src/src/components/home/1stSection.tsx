@@ -11,7 +11,7 @@ export default function FirstSection(): ReactNode {
           <div className={styles.leftColumn}>
             <div className={styles.content}>
               <h1 className={styles.tagline}>
-                Build beautiful documentation sites with ease
+                Are you ready to Decarbonize Creative Industries?
               </h1>
               <div className={styles.buttons}>
                 <button className={clsx(styles.button, styles.buttonSecondary)}>
@@ -39,7 +39,7 @@ export default function FirstSection(): ReactNode {
           <div className={styles.mobileOverlay}>
             <div className={styles.overlayContent}>
               <h1 className={styles.taglineMobile}>
-                Build beautiful documentation sites with ease
+                Are you ready to Decarbonize Creative Industries?
               </h1>
               <div className={styles.buttonsMobile}>
                 <button className={clsx(styles.button, styles.buttonSecondary)}>
