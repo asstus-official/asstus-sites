@@ -312,9 +312,12 @@ echo
 
 # Push
 print_info "Pushing to remote branch: $SELECTED_BRANCH..."
-git push origin "$SELECTED_BRANCH" 2>&1
+PUSH_OUTPUT=$(git push origin "$SELECTED_BRANCH" 2>&1)
+PUSH_EXIT_CODE=$?
 
-if [ $? -ne 0 ]; then
+echo "$PUSH_OUTPUT"
+
+if [ $PUSH_EXIT_CODE -ne 0 ]; then
     print_error "Push failed!"
     echo
     print_warning "Common solutions:"
@@ -329,9 +332,11 @@ if [ $? -ne 0 ]; then
     
     # Try to set upstream if it's a new branch
     print_info "Trying to set upstream..."
-    git push --set-upstream origin "$SELECTED_BRANCH" 2>&1
+    PUSH_OUTPUT=$(git push --set-upstream origin "$SELECTED_BRANCH" 2>&1)
+    PUSH_EXIT_CODE=$?
+    echo "$PUSH_OUTPUT"
     
-    if [ $? -ne 0 ]; then
+    if [ $PUSH_EXIT_CODE -ne 0 ]; then
         print_error "Failed to push! Please check your permissions."
         exit_script "Push failed - check authentication."
         return 1
@@ -339,6 +344,13 @@ if [ $? -ne 0 ]; then
 fi
 
 print_success "Pushed successfully!"
+echo
+
+# Get the latest commit hash
+COMMIT_HASH=$(git rev-parse HEAD)
+SHORT_HASH=$(git rev-parse --short HEAD)
+
+print_info "Commit: ${GREEN}${SHORT_HASH}${NC}"
 echo
 
 # Generate Cloudflare Pages URL
@@ -349,17 +361,27 @@ SANITIZED_BRANCH=$(echo "$SELECTED_BRANCH" | sed 's/[^a-zA-Z0-9-]/-/g' | tr '[:u
 
 if [ "$SELECTED_BRANCH" = "main" ] || [ "$SELECTED_BRANCH" = "master" ]; then
     CLOUDFLARE_URL="https://${PROJECT_NAME}.pages.dev"
-    print_success "Production URL:"
+    print_success "Production deployment URL:"
+    echo -e "${GREEN}${CLOUDFLARE_URL}${NC}"
 else
-    CLOUDFLARE_URL="https://${SANITIZED_BRANCH}.${PROJECT_NAME}.pages.dev"
-    print_success "Preview URL:"
+    # For preview deployments, Cloudflare uses commit hash
+    PREVIEW_URL="https://${SHORT_HASH}.${PROJECT_NAME}.pages.dev"
+    BRANCH_URL="https://${SANITIZED_BRANCH}.${PROJECT_NAME}.pages.dev"
+    
+    print_success "Preview deployment URLs:"
+    echo -e "${GREEN}By commit: ${PREVIEW_URL}${NC}"
+    echo -e "${GREEN}By branch: ${BRANCH_URL}${NC}"
 fi
-
-echo -e "${GREEN}${CLOUDFLARE_URL}${NC}"
 echo
 
-print_info "Note: It may take 1-2 minutes for Cloudflare to build and deploy"
-print_info "You can check deployment status at: https://dash.cloudflare.com/"
+print_info "📊 Cloudflare Pages Dashboard:"
+echo -e "${BLUE}https://dash.cloudflare.com/${NC}"
+echo
+
+print_warning "⏳ Deployment status:"
+echo "  • Build typically takes 1-3 minutes"
+echo "  • Check the dashboard above for real-time status"
+echo "  • You'll see deployment logs and the actual URL once built"
 echo
 
 # Keep terminal open
