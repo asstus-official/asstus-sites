@@ -407,68 +407,57 @@ manage_cloudflare_deployments() {
     echo
     print_info "Checking for Cloudflare API credentials..."
     
-    # Check for API credentials from GitHub secrets or environment variables
-    CF_API_TOKEN="${CLOUDFLARE_API_TOKEN:-}"
-    CF_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-}"
+    # Check for API credentials
+    CF_API_TOKEN=""
+    CF_ACCOUNT_ID=""
     CF_PROJECT_NAME="asstus-sites"
     
-    # If running in GitHub Actions, credentials should be available as environment variables
-    if [ -n "$GITHUB_ACTIONS" ]; then
-        print_info "Running in GitHub Actions environment"
-        if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
-            print_error "Cloudflare credentials not found in GitHub secrets!"
-            echo
-            echo "Please add the following secrets to your GitHub repository:"
-            echo "  1. Go to: Settings → Secrets and variables → Actions"
-            echo "  2. Add secrets:"
-            echo "     • CLOUDFLARE_API_TOKEN"
-            echo "     • CLOUDFLARE_ACCOUNT_ID"
-            echo
+    # Try to read from .env file first
+    if [ -f ".env" ]; then
+        source .env 2>/dev/null
+        CF_API_TOKEN="${CLOUDFLARE_API_TOKEN:-$CF_API_TOKEN}"
+        CF_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-$CF_ACCOUNT_ID}"
+    fi
+    
+    # If not found, ask user
+    if [ -z "$CF_API_TOKEN" ]; then
+        echo
+        print_warning "Cloudflare API Token not found!"
+        echo
+        echo "To manage deployments, you need:"
+        echo "  1. Cloudflare API Token (with Pages:Edit permission)"
+        echo "  2. Cloudflare Account ID"
+        echo
+        echo "Get them from: https://dash.cloudflare.com/profile/api-tokens"
+        echo
+        read -p "Enter Cloudflare API Token (or press Enter to skip): " CF_API_TOKEN
+        
+        if [ -z "$CF_API_TOKEN" ]; then
             print_warning "Skipping deployment management."
             return 0
         fi
-    else
-        # If not in GitHub Actions, try to get from user or environment
-        if [ -z "$CF_API_TOKEN" ]; then
-            echo
-            print_warning "Cloudflare API Token not found in environment!"
-            echo
-            echo "To manage deployments, you need:"
-            echo "  1. Cloudflare API Token (with Pages:Edit permission)"
-            echo "  2. Cloudflare Account ID"
-            echo
-            echo "For GitHub Actions, add these as repository secrets:"
-            echo "  • Go to: Settings → Secrets and variables → Actions"
-            echo "  • Add: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID"
-            echo
-            echo "For local use, set environment variables:"
-            echo "  export CLOUDFLARE_API_TOKEN='your-token'"
-            echo "  export CLOUDFLARE_ACCOUNT_ID='your-account-id'"
-            echo
-            echo "Get credentials from: https://dash.cloudflare.com/profile/api-tokens"
-            echo
-            read -p "Enter Cloudflare API Token (or press Enter to skip): " CF_API_TOKEN
-            
-            if [ -z "$CF_API_TOKEN" ]; then
-                print_warning "Skipping deployment management."
-                return 0
-            fi
-        fi
+    fi
+    
+    if [ -z "$CF_ACCOUNT_ID" ]; then
+        read -p "Enter Cloudflare Account ID: " CF_ACCOUNT_ID
         
         if [ -z "$CF_ACCOUNT_ID" ]; then
-            read -p "Enter Cloudflare Account ID: " CF_ACCOUNT_ID
-            
-            if [ -z "$CF_ACCOUNT_ID" ]; then
-                print_warning "Account ID required. Skipping deployment management."
-                return 0
-            fi
+            print_warning "Account ID required. Skipping deployment management."
+            return 0
         fi
+    fi
+    
+    # Save credentials to .env for future use
+    if [ ! -f ".env" ]; then
+        echo "CLOUDFLARE_API_TOKEN=$CF_API_TOKEN" > .env
+        echo "CLOUDFLARE_ACCOUNT_ID=$CF_ACCOUNT_ID" >> .env
+        print_success "Credentials saved to .env file"
         
-        # Suggest adding to shell profile for future use
-        echo
-        print_info "💡 Tip: Add these to your ~/.bashrc or ~/.zshrc for persistence:"
-        echo "  export CLOUDFLARE_API_TOKEN='your-token'"
-        echo "  export CLOUDFLARE_ACCOUNT_ID='your-account-id'"
+        # Add .env to .gitignore if not already there
+        if [ -f ".gitignore" ] && ! grep -q "^\.env$" .gitignore; then
+            echo ".env" >> .gitignore
+            print_info "Added .env to .gitignore"
+        fi
     fi
     
     echo
@@ -485,11 +474,6 @@ manage_cloudflare_deployments() {
         print_error "Failed to fetch deployments!"
         echo "API Response:"
         echo "$API_RESPONSE" | head -20
-        echo
-        print_warning "Possible issues:"
-        echo "  • Invalid API token"
-        echo "  • Incorrect Account ID"
-        echo "  • Missing API permissions (needs Pages:Edit)"
         return 1
     fi
     
