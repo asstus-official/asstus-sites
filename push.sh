@@ -393,6 +393,237 @@ SHORT_HASH=$(git rev-parse --short HEAD)
 print_info "Commit: ${GREEN}${SHORT_HASH}${NC}"
 echo
 
+# Function to manage Cloudflare deployments
+manage_cloudflare_deployments() {
+    print_info "Do you want to manage previous Cloudflare deployments?"
+    echo "  1) Yes, list and delete old deployments"
+    echo "  2) No, skip"
+    read -p "Enter choice (1-2): " manage_choice
+    
+    if [ "$manage_choice" != "1" ]; then
+        return 0
+    fi
+    
+    echo
+    print_info "Checking for Cloudflare API credentials..."
+    
+    # Check for API credentials from GitHub secrets or environment variables
+    CF_API_TOKEN="${CLOUDFLARE_API_TOKEN:-}"
+    CF_ACCOUNT_ID="${CLOUDFLARE_ACCOUNT_ID:-}"
+    CF_PROJECT_NAME="asstus-sites"
+    
+    # If running in GitHub Actions, credentials should be available as environment variables
+    if [ -n "$GITHUB_ACTIONS" ]; then
+        print_info "Running in GitHub Actions environment"
+        if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ACCOUNT_ID" ]; then
+            print_error "Cloudflare credentials not found in GitHub secrets!"
+            echo
+            echo "Please add the following secrets to your GitHub repository:"
+            echo "  1. Go to: Settings → Secrets and variables → Actions"
+            echo "  2. Add secrets:"
+            echo "     • CLOUDFLARE_API_TOKEN"
+            echo "     • CLOUDFLARE_ACCOUNT_ID"
+            echo
+            print_warning "Skipping deployment management."
+            return 0
+        fi
+    else
+        # If not in GitHub Actions, try to get from user or environment
+        if [ -z "$CF_API_TOKEN" ]; then
+            echo
+            print_warning "Cloudflare API Token not found in environment!"
+            echo
+            echo "To manage deployments, you need:"
+            echo "  1. Cloudflare API Token (with Pages:Edit permission)"
+            echo "  2. Cloudflare Account ID"
+            echo
+            echo "For GitHub Actions, add these as repository secrets:"
+            echo "  • Go to: Settings → Secrets and variables → Actions"
+            echo "  • Add: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID"
+            echo
+            echo "For local use, set environment variables:"
+            echo "  export CLOUDFLARE_API_TOKEN='your-token'"
+            echo "  export CLOUDFLARE_ACCOUNT_ID='your-account-id'"
+            echo
+            echo "Get credentials from: https://dash.cloudflare.com/profile/api-tokens"
+            echo
+            read -p "Enter Cloudflare API Token (or press Enter to skip): " CF_API_TOKEN
+            
+            if [ -z "$CF_API_TOKEN" ]; then
+                print_warning "Skipping deployment management."
+                return 0
+            fi
+        fi
+        
+        if [ -z "$CF_ACCOUNT_ID" ]; then
+            read -p "Enter Cloudflare Account ID: " CF_ACCOUNT_ID
+            
+            if [ -z "$CF_ACCOUNT_ID" ]; then
+                print_warning "Account ID required. Skipping deployment management."
+                return 0
+            fi
+        fi
+        
+        # Suggest adding to shell profile for future use
+        echo
+        print_info "💡 Tip: Add these to your ~/.bashrc or ~/.zshrc for persistence:"
+        echo "  export CLOUDFLARE_API_TOKEN='your-token'"
+        echo "  export CLOUDFLARE_ACCOUNT_ID='your-account-id'"
+    fi
+    
+    echo
+    print_info "Fetching deployments for branch: ${GREEN}${SELECTED_BRANCH}${NC}"
+    
+    # Fetch deployments from Cloudflare API
+    API_RESPONSE=$(curl -s -X GET \
+        "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${CF_PROJECT_NAME}/deployments" \
+        -H "Authorization: Bearer ${CF_API_TOKEN}" \
+        -H "Content-Type: application/json")
+    
+    # Check if API call was successful
+    if ! echo "$API_RESPONSE" | grep -q '"success":true'; then
+        print_error "Failed to fetch deployments!"
+        echo "API Response:"
+        echo "$API_RESPONSE" | head -20
+        echo
+        print_warning "Possible issues:"
+        echo "  • Invalid API token"
+        echo "  • Incorrect Account ID"
+        echo "  • Missing API permissions (needs Pages:Edit)"
+        return 1
+    fi
+    
+    # Parse deployments for the selected branch
+    # Using basic text parsing since we may not have jq installed
+    DEPLOYMENTS=$(echo "$API_RESPONSE" | grep -o '"id":"[^"]*"' | sed 's/"id":"//g' | sed 's/"//g')
+    
+    if [ -z "$DEPLOYMENTS" ]; then
+        print_warning "No deployments found for this branch."
+        return 0
+    fi
+    
+    # Create temporary file to store deployment info
+    TEMP_FILE=$(mktemp)
+    
+    echo "$API_RESPONSE" > "$TEMP_FILE"
+    
+    # Display deployments
+    echo
+    print_success "Previous deployments found:"
+    echo
+    
+    DEPLOYMENT_COUNT=0
+    declare -a DEPLOYMENT_IDS
+    declare -a DEPLOYMENT_URLS
+    declare -a DEPLOYMENT_DATES
+    
+    # Parse and display deployments (limited parsing without jq)
+    while IFS= read -r deployment_id; do
+        DEPLOYMENT_COUNT=$((DEPLOYMENT_COUNT + 1))
+        
+        # Try to extract URL and created date
+        DEPLOYMENT_URL=$(echo "$API_RESPONSE" | grep -A 20 "\"id\":\"$deployment_id\"" | grep -o '"url":"[^"]*"' | head -1 | sed 's/"url":"//g' | sed 's/"//g')
+        CREATED_AT=$(echo "$API_RESPONSE" | grep -A 20 "\"id\":\"$deployment_id\"" | grep -o '"created_on":"[^"]*"' | head -1 | sed 's/"created_on":"//g' | sed 's/"//g')
+        
+        DEPLOYMENT_IDS+=("$deployment_id")
+        DEPLOYMENT_URLS+=("$DEPLOYMENT_URL")
+        DEPLOYMENT_DATES+=("$CREATED_AT")
+        
+        printf "  %d) %s\n" $DEPLOYMENT_COUNT "${DEPLOYMENT_URL:-$deployment_id}"
+        printf "     Created: %s\n" "${CREATED_AT:-Unknown}"
+        printf "     ID: %s\n" "$deployment_id"
+        echo
+    done <<< "$DEPLOYMENTS"
+    
+    rm -f "$TEMP_FILE"
+    
+    if [ $DEPLOYMENT_COUNT -eq 0 ]; then
+        print_warning "No deployments to display."
+        return 0
+    fi
+    
+    # Ask which deployments to delete
+    echo
+    print_info "Which deployments do you want to delete?"
+    echo "  • Enter numbers separated by spaces (e.g., 1 3 5)"
+    echo "  • Enter 'all' to delete all except the latest"
+    echo "  • Enter 'none' or press Enter to skip"
+    read -p "Enter choice: " delete_choice
+    
+    if [ -z "$delete_choice" ] || [ "$delete_choice" = "none" ]; then
+        print_info "No deployments deleted."
+        return 0
+    fi
+    
+    # Parse deletion choices
+    declare -a TO_DELETE
+    
+    if [ "$delete_choice" = "all" ]; then
+        # Delete all except the first one (latest)
+        for i in $(seq 2 $DEPLOYMENT_COUNT); do
+            TO_DELETE+=($i)
+        done
+    else
+        # Parse space-separated numbers
+        for num in $delete_choice; do
+            if [[ "$num" =~ ^[0-9]+$ ]] && [ "$num" -ge 1 ] && [ "$num" -le $DEPLOYMENT_COUNT ]; then
+                TO_DELETE+=($num)
+            else
+                print_warning "Invalid number: $num (skipped)"
+            fi
+        done
+    fi
+    
+    if [ ${#TO_DELETE[@]} -eq 0 ]; then
+        print_warning "No valid deployments selected for deletion."
+        return 0
+    fi
+    
+    # Confirm deletion
+    echo
+    print_warning "You are about to delete ${#TO_DELETE[@]} deployment(s)."
+    read -p "Are you sure? (y/n): " confirm_delete
+    
+    if [ "$confirm_delete" != "y" ] && [ "$confirm_delete" != "Y" ]; then
+        print_info "Deletion cancelled."
+        return 0
+    fi
+    
+    # Delete selected deployments
+    echo
+    print_info "Deleting deployments..."
+    
+    DELETED_COUNT=0
+    FAILED_COUNT=0
+    
+    for index in "${TO_DELETE[@]}"; do
+        deployment_id="${DEPLOYMENT_IDS[$((index-1))]}"
+        deployment_url="${DEPLOYMENT_URLS[$((index-1))]}"
+        
+        print_info "Deleting: ${deployment_url:-$deployment_id}"
+        
+        DELETE_RESPONSE=$(curl -s -X DELETE \
+            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${CF_PROJECT_NAME}/deployments/${deployment_id}" \
+            -H "Authorization: Bearer ${CF_API_TOKEN}" \
+            -H "Content-Type: application/json")
+        
+        if echo "$DELETE_RESPONSE" | grep -q '"success":true'; then
+            print_success "✓ Deleted successfully"
+            DELETED_COUNT=$((DELETED_COUNT + 1))
+        else
+            print_error "✗ Failed to delete"
+            FAILED_COUNT=$((FAILED_COUNT + 1))
+        fi
+    done
+    
+    echo
+    print_success "Deletion complete: ${DELETED_COUNT} deleted, ${FAILED_COUNT} failed"
+}
+
+# Call the function
+manage_cloudflare_deployments
+echo
+
 # Generate Cloudflare Pages URL
 PROJECT_NAME="asstus-sites"
 
