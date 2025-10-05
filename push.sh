@@ -56,8 +56,18 @@ if [ -z "$AUTHOR" ]; then
     return 1
 fi
 
-# Check GitHub authentication
-print_info "Checking GitHub authentication..."
+# Check GitHub authentication and write permission
+print_info "Checking GitHub authentication and write permissions..."
+
+# Get remote URL
+REMOTE_URL=$(git config --get remote.origin.url)
+if [ -z "$REMOTE_URL" ]; then
+    print_error "No remote origin configured!"
+    exit_script "Please add a remote origin first."
+    return 1
+fi
+
+# Test basic connection
 if ! git ls-remote origin > /dev/null 2>&1; then
     print_error "Cannot connect to GitHub repository!"
     print_warning "You may need to authenticate with GitHub."
@@ -73,11 +83,51 @@ if ! git ls-remote origin > /dev/null 2>&1; then
     return 1
 fi
 
-# Get current date in ddmmyy format
-DATE=$(date +%d%m%y)
+print_success "GitHub connection successful"
+
+# Check write permissions by attempting to fetch
+print_info "Verifying write permissions..."
+
+# Get current branch
+CURRENT_BRANCH=$(git branch --show-current)
+
+# Try to check if we can push to the current branch
+# We'll do this by checking if we can fetch and if the repo allows pushes
+git fetch origin > /dev/null 2>&1
+
+# Check if we have push access by examining git capabilities
+if git ls-remote --heads origin > /dev/null 2>&1; then
+    # Try a dry-run push to verify write access
+    if ! git push --dry-run origin "$CURRENT_BRANCH" 2>&1 | grep -q "Everything up-to-date\|^To\|Would set upstream"; then
+        # Check the error more specifically
+        DRY_RUN_OUTPUT=$(git push --dry-run origin "$CURRENT_BRANCH" 2>&1)
+        
+        if echo "$DRY_RUN_OUTPUT" | grep -q "Permission denied\|denied to\|403\|cannot push\|protected branch"; then
+            print_error "Write permission denied!"
+            echo
+            print_warning "You do not have write access to this repository."
+            echo
+            echo "Possible reasons:"
+            echo "  1. You don't have push access to 'asstus-official/asstus-sites'"
+            echo "  2. The branch is protected and requires review"
+            echo "  3. Your authentication token lacks write permissions"
+            echo
+            echo "Solutions:"
+            echo "  1. Ask the repository owner to grant you write access"
+            echo "  2. Fork the repository and push to your fork instead"
+            echo "  3. If using a token, regenerate with 'repo' permissions at:"
+            echo "     https://github.com/settings/tokens"
+            echo
+            exit_script "Script cannot continue without write permissions."
+            return 1
+        fi
+    fi
+fi
+
+print_success "Write permissions verified"
+echo
 
 # Show current branch
-CURRENT_BRANCH=$(git branch --show-current)
 print_info "Current branch: ${GREEN}$CURRENT_BRANCH${NC}"
 echo
 
@@ -218,6 +268,9 @@ fi
 # Get only filenames (without path) for commit message
 FILE_NAMES=$(git diff --cached --name-only | xargs -n1 basename | paste -sd "," - | sed 's/,/, /g')
 
+# Get current date in ddmmyy format
+DATE=$(date +%d%m%y)
+
 # Ask for goal
 print_info "What is the goal of these changes?"
 read -p "Goal: " GOAL
@@ -235,59 +288,6 @@ echo
 print_info "Commit message:"
 echo -e "${YELLOW}$COMMIT_MSG${NC}"
 echo
-
-# Ask to save log before committing
-print_info "Do you want to save a log file before committing?"
-echo "  1) Yes, save to log.txt"
-echo "  2) No, proceed without log"
-read -p "Enter choice (1-2): " log_choice
-
-if [ "$log_choice" = "1" ]; then
-    LOG_FILE="log.txt"
-    print_info "Generating log file..."
-    
-    # Create log content
-    {
-        echo "================================================"
-        echo "GIT COMMIT LOG"
-        echo "================================================"
-        echo "Date: $(date '+%Y-%m-%d %H:%M:%S')"
-        echo "Author: $AUTHOR"
-        echo "Branch: $SELECTED_BRANCH"
-        echo "Commit Message: $COMMIT_MSG"
-        echo ""
-        echo "================================================"
-        echo "CHANGED FILES"
-        echo "================================================"
-        git diff --cached --name-status
-        echo ""
-        echo "================================================"
-        echo "FILE CHANGES SUMMARY"
-        echo "================================================"
-        git diff --cached --stat
-        echo ""
-        echo "================================================"
-        echo "DETAILED CHANGES"
-        echo "================================================"
-        git diff --cached
-    } > "$LOG_FILE"
-    
-    print_success "Log saved to: $LOG_FILE"
-    
-    # Ask if user wants to view the log
-    read -p "Do you want to view the log? (y/n): " view_log
-    if [ "$view_log" = "y" ] || [ "$view_log" = "Y" ]; then
-        # Try to use less, fallback to cat
-        if command -v less &> /dev/null; then
-            less "$LOG_FILE"
-        else
-            cat "$LOG_FILE"
-            echo
-            read -p "Press Enter to continue..."
-        fi
-    fi
-    echo
-fi
 
 # Confirm before committing
 read -p "Proceed with commit and push? (y/n): " confirm
@@ -342,7 +342,6 @@ print_success "Pushed successfully!"
 echo
 
 # Generate Cloudflare Pages URL
-# Assuming project name is from docusaurus.config.ts projectName
 PROJECT_NAME="asstus-sites"
 
 # Sanitize branch name for URL (replace special characters with -)
