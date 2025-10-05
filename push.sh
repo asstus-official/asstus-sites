@@ -289,6 +289,46 @@ print_info "Commit message:"
 echo -e "${YELLOW}$COMMIT_MSG${NC}"
 echo
 
+# Ask to save log
+print_info "Do you want to save a log file?"
+echo "  1) Yes, save to log.txt"
+echo "  2) No, skip log"
+read -p "Enter choice (1-2): " log_choice
+
+if [ "$log_choice" = "1" ]; then
+    LOG_FILE="log.txt"
+    print_info "Generating log file..."
+    
+    # Create log content
+    {
+        echo "================================================"
+        echo "GIT COMMIT LOG"
+        echo "================================================"
+        echo "Date: $(date '+%Y-%m-%d %H:%M:%S')"
+        echo "Author: $AUTHOR"
+        echo "Branch: $SELECTED_BRANCH"
+        echo "Commit Message: $COMMIT_MSG"
+        echo ""
+        echo "================================================"
+        echo "CHANGED FILES"
+        echo "================================================"
+        git diff --cached --name-status
+        echo ""
+        echo "================================================"
+        echo "FILE CHANGES SUMMARY"
+        echo "================================================"
+        git diff --cached --stat
+        echo ""
+        echo "================================================"
+        echo "DETAILED CHANGES"
+        echo "================================================"
+        git diff --cached
+    } > "$LOG_FILE"
+    
+    print_success "Log saved to: $LOG_FILE"
+    echo
+fi
+
 # Confirm before committing
 read -p "Proceed with commit and push? (y/n): " confirm
 if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
