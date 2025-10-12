@@ -701,12 +701,12 @@ export default function FourthSection() {
               const hasLabel = !!testimonial;
 
               return (
-                <divcss
+                <div
                   key={`${brandItem.segmentName}-${brandItem.brand.brandName}-${index}`}
                   className="brand-container"
                   onMouseEnter={(e) => handleMouseEnter(brandItem, e)}
                   onMouseLeave={handleMouseLeave}
-                >
+                
                   <div className="brand-logo-wrapper">
                     <img
                       src={getLogoUrl(brandItem)}
