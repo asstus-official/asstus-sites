@@ -1,0 +1,135 @@
+{
+  "segmentName": "filming",
+  "brands": [
+    {
+      "brandName": "netflix",
+      "logoUrl": "https://logo.clearbit.com/netflix.com",
+      "testimonial": {
+        "brandName": "netflix",
+        "labelName": "Case study",
+        "representative": "Netflix",
+        "avatar": "https://ui-avatars.com/api/?name=Emma+Stewart&size=200",
+        "fullName": "Emma Stewart",
+        "jobTitle": "Sustainability Officer",
+        "quote": "The entertainment industry's carbon footprint is massive. We're committed to reaching net zero emissions by 2030 and helping productions measure and reduce their environmental impact."
+      }
+    },
+    {
+      "brandName": "disney",
+      "logoUrl": "https://logo.clearbit.com/disney.com",
+      "testimonial": {
+        "brandName": "disney",
+        "labelName": "Case study",
+        "representative": "The Walt Disney Company",
+        "avatar": "https://ui-avatars.com/api/?name=Bob+Iger&size=200",
+        "fullName": "Bob Iger",
+        "jobTitle": "CEO",
+        "quote": "As storytellers, we have a responsibility to protect the planet for future generations. We're working to achieve net zero emissions across our entire production chain."
+      }
+    },
+    {
+      "brandName": "warner-bros",
+      "logoUrl": "https://logo.clearbit.com/warnerbros.com",
+      "testimonial": {
+        "brandName": "warner-bros",
+        "labelName": "Case study",
+        "representative": "Warner Bros. Discovery",
+        "avatar": "https://ui-avatars.com/api/?name=David+Zaslav&size=200",
+        "fullName": "David Zaslav",
+        "jobTitle": "CEO",
+        "quote": "Every production has an environmental cost. We're implementing green production standards to significantly reduce carbon emissions across all our content creation."
+      }
+    },
+    {
+      "brandName": "sony-pictures",
+      "logoUrl": "https://logo.clearbit.com/sonypictures.com",
+      "testimonial": {
+        "brandName": "sony-pictures",
+        "labelName": "Case study",
+        "representative": "Sony Pictures Entertainment",
+        "avatar": "https://ui-avatars.com/api/?name=Tony+Vinciquerra&size=200",
+        "fullName": "Tony Vinciquerra",
+        "jobTitle": "Chairman & CEO",
+        "quote": "Sustainable filmmaking is no longer optional. We're investing in renewable energy on sets and requiring carbon accounting on all major productions."
+      }
+    },
+    {
+      "brandName": "paramount",
+      "logoUrl": "https://logo.clearbit.com/paramount.com",
+      "testimonial": {
+        "brandName": "paramount",
+        "labelName": "Case study",
+        "representative": "Paramount Pictures",
+        "avatar": "https://ui-avatars.com/api/?name=Brian+Robbins&size=200",
+        "fullName": "Brian Robbins",
+        "jobTitle": "President & CEO",
+        "quote": "Film and TV production generates significant emissions from energy use, transportation, and waste. We're pioneering solutions to make every shoot more sustainable."
+      }
+    },
+    {
+      "brandName": "bbc-studios",
+      "logoUrl": "https://logo.clearbit.com/bbcstudios.com",
+      "testimonial": {
+        "brandName": "bbc-studios",
+        "labelName": "Case study",
+        "representative": "BBC Studios",
+        "avatar": "https://ui-avatars.com/api/?name=Tom+Fussell&size=200",
+        "fullName": "Tom Fussell",
+        "jobTitle": "CEO",
+        "quote": "The BBC has committed to becoming a net zero organization. Every production now must measure its carbon footprint and implement reduction strategies."
+      }
+    },
+    {
+      "brandName": "sky",
+      "logoUrl": "https://logo.clearbit.com/sky.com",
+      "testimonial": {
+        "brandName": "sky",
+        "labelName": "Case study",
+        "representative": "Sky",
+        "avatar": "https://ui-avatars.com/api/?name=Dana+Strong&size=200",
+        "fullName": "Dana Strong",
+        "jobTitle": "Group CEO",
+        "quote": "We became carbon neutral in 2006 and now we're going further - aiming to be net zero carbon by 2030 across our entire value chain, including all content production."
+      }
+    },
+    {
+      "brandName": "nbcuniversal",
+      "logoUrl": "https://logo.clearbit.com/nbcuniversal.com",
+      "testimonial": {
+        "brandName": "nbcuniversal",
+        "labelName": "Case study",
+        "representative": "NBCUniversal",
+        "avatar": "https://ui-avatars.com/api/?name=Jeff+Shell&size=200",
+        "fullName": "Mike Cavanagh",
+        "jobTitle": "President",
+        "quote": "Green production isn't just good for the planet - it's good for business. We're reducing waste, cutting energy use, and inspiring the industry to follow."
+      }
+    },
+    {
+      "brandName": "lionsgate",
+      "logoUrl": "https://logo.clearbit.com/lionsgate.com",
+      "testimonial": {
+        "brandName": "lionsgate",
+        "labelName": "Case study",
+        "representative": "Lionsgate",
+        "avatar": "https://ui-avatars.com/api/?name=Jon+Feltheimer&size=200",
+        "fullName": "Jon Feltheimer",
+        "jobTitle": "CEO",
+        "quote": "The carbon cost of content creation is real. We're implementing comprehensive sustainability programs to track and reduce emissions on every project."
+      }
+    },
+    {
+      "brandName": "a24",
+      "logoUrl": "https://logo.clearbit.com/a24films.com",
+      "testimonial": {
+        "brandName": "a24",
+        "labelName": "Case study",
+        "representative": "A24",
+        "avatar": "https://ui-avatars.com/api/?name=Daniel+Katz&size=200",
+        "fullName": "Daniel Katz",
+        "jobTitle": "Co-founder",
+        "quote": "Independent cinema has a unique opportunity to lead on sustainability. Smaller productions can innovate faster and prove that low-carbon filmmaking is achievable."
+      }
+    }
+  ]
+}json

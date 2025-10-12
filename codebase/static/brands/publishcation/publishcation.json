@@ -1,0 +1,135 @@
+{
+  "segmentName": "music",
+  "brands": [
+    {
+      "brandName": "universal-music",
+      "logoUrl": "https://logo.clearbit.com/universalmusic.com",
+      "testimonial": {
+        "brandName": "universal-music",
+        "labelName": "Case study",
+        "representative": "Universal Music Group",
+        "avatar": "https://ui-avatars.com/api/?name=Lucian+Grainge&size=200",
+        "fullName": "Lucian Grainge",
+        "jobTitle": "Chairman & CEO",
+        "quote": "The music industry must lead by example on climate action. We're working with artists to measure and reduce touring emissions and transition to sustainable operations."
+      }
+    },
+    {
+      "brandName": "sony-music",
+      "logoUrl": "https://logo.clearbit.com/sonymusic.com",
+      "testimonial": {
+        "brandName": "sony-music",
+        "labelName": "Case study",
+        "representative": "Sony Music Entertainment",
+        "avatar": "https://ui-avatars.com/api/?name=Rob+Stringer&size=200",
+        "fullName": "Rob Stringer",
+        "jobTitle": "Chairman",
+        "quote": "Music production and touring generate significant carbon emissions. We're committed to achieving carbon neutrality and helping artists reduce their environmental impact."
+      }
+    },
+    {
+      "brandName": "warner-music",
+      "logoUrl": "https://logo.clearbit.com/warnermusic.com",
+      "testimonial": {
+        "brandName": "warner-music",
+        "labelName": "Case study",
+        "representative": "Warner Music Group",
+        "avatar": "https://ui-avatars.com/api/?name=Robert+Kyncl&size=200",
+        "fullName": "Robert Kyncl",
+        "jobTitle": "CEO",
+        "quote": "Climate change affects everyone, and the music community has a powerful voice. We're using that voice to drive real change in how the industry operates."
+      }
+    },
+    {
+      "brandName": "spotify",
+      "logoUrl": "https://logo.clearbit.com/spotify.com",
+      "testimonial": {
+        "brandName": "spotify",
+        "labelName": "Case study",
+        "representative": "Spotify",
+        "avatar": "https://ui-avatars.com/api/?name=Daniel+Ek&size=200",
+        "fullName": "Daniel Ek",
+        "jobTitle": "CEO & Founder",
+        "quote": "Digital streaming has a carbon footprint through data centers and devices. We're transitioning to 100% renewable energy and helping the industry become more sustainable."
+      }
+    },
+    {
+      "brandName": "coldplay",
+      "logoUrl": "https://logo.clearbit.com/coldplay.com",
+      "testimonial": {
+        "brandName": "coldplay",
+        "labelName": "Case study",
+        "representative": "Coldplay",
+        "avatar": "https://ui-avatars.com/api/?name=Chris+Martin&size=200",
+        "fullName": "Chris Martin",
+        "jobTitle": "Lead Singer",
+        "quote": "Our Music of the Spheres tour cuts emissions by 50% compared to our previous tour. Every artist can and should measure their impact and find ways to reduce it."
+      }
+    },
+    {
+      "brandName": "massive-attack",
+      "logoUrl": "https://logo.clearbit.com/massiveattack.co.uk",
+      "testimonial": {
+        "brandName": "massive-attack",
+        "labelName": "Case study",
+        "representative": "Massive Attack",
+        "avatar": "https://ui-avatars.com/api/?name=Robert+Del+Naja&size=200",
+        "fullName": "Robert Del Naja",
+        "jobTitle": "Artist",
+        "quote": "We commissioned the Tyndall Centre to study music touring emissions. The findings are stark - we need systematic change across the entire live music industry."
+      }
+    },
+    {
+      "brandName": "billie-eilish",
+      "logoUrl": "https://ui-avatars.com/api/?name=Billie+Eilish&size=400&background=000&color=fff",
+      "testimonial": {
+        "brandName": "billie-eilish",
+        "labelName": "Case study",
+        "representative": "Billie Eilish",
+        "avatar": "https://ui-avatars.com/api/?name=Billie+Eilish&size=200",
+        "fullName": "Billie Eilish",
+        "jobTitle": "Artist",
+        "quote": "Climate change is an emergency. My tours eliminate single-use plastics, offer plant-based food options, and we're working to make every show as sustainable as possible."
+      }
+    },
+    {
+      "brandName": "the-1975",
+      "logoUrl": "https://ui-avatars.com/api/?name=The+1975&size=400&background=000&color=fff",
+      "testimonial": {
+        "brandName": "the-1975",
+        "labelName": "Case study",
+        "representative": "The 1975",
+        "avatar": "https://ui-avatars.com/api/?name=Matty+Healy&size=200",
+        "fullName": "Matty Healy",
+        "jobTitle": "Lead Singer",
+        "quote": "We're planting trees for every ticket sold and working with experts to reduce our touring carbon footprint. Artists have to be part of the climate solution."
+      }
+    },
+    {
+      "brandName": "radiohead",
+      "logoUrl": "https://ui-avatars.com/api/?name=Radiohead&size=400&background=000&color=fff",
+      "testimonial": {
+        "brandName": "radiohead",
+        "labelName": "Case study",
+        "representative": "Radiohead",
+        "avatar": "https://ui-avatars.com/api/?name=Thom+Yorke&size=200",
+        "fullName": "Thom Yorke",
+        "jobTitle": "Lead Singer",
+        "quote": "We've been carbon accounting our tours for years. The music industry needs to face the reality of its environmental impact and take concrete action."
+      }
+    },
+    {
+      "brandName": "bmg",
+      "logoUrl": "https://logo.clearbit.com/bmg.com",
+      "testimonial": {
+        "brandName": "bmg",
+        "labelName": "Case study",
+        "representative": "BMG Rights Management",
+        "avatar": "https://ui-avatars.com/api/?name=Hartwig+Masuch&size=200",
+        "fullName": "Hartwig Masuch",
+        "jobTitle": "CEO",
+        "quote": "As a music company, we have a responsibility to support artists in reducing their environmental impact and to make our own operations sustainable."
+      }
+    }
+  ]
+}

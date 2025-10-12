@@ -1,0 +1,432 @@
+.brandsSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ifm-heading-color);
+  margin: 0;
+}
+
+.brandsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  min-height: 300px;
+}
+
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 900px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.brandContainer {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brandContainer:hover {
+  transform: scale(1.08);
+}
+
+.brandLogoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.brandLogo {
+  height: 70px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.brandContainer:hover .brandLogo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4A90E2;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+  z-index: 5;
+}
+
+/* Navigation Buttons - Desktop */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navButtonLeft {
+  left: 0;
+}
+
+.navButtonRight {
+  right: 0;
+}
+
+/* Pagination Dots */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  border-color: var(--ifm-color-primary);
+  transform: scale(1.2);
+}
+
+.dotActive {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  width: 12px;
+  height: 12px;
+}
+
+/* Testimonial Tooltip */
+.testimonialTooltip {
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 20px));
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 340px;
+  max-width: 400px;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 10px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 20px));
+  }
+}
+
+.testimonialTooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+.tooltipHeader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--ifm-color-primary-lighter);
+}
+
+.tooltipInfo {
+  flex: 1;
+}
+
+.representative {
+  font-size: 0.75rem;
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.fullName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.25rem;
+}
+
+.jobTitle {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+}
+
+.quote {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  font-style: italic;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Dark mode support */
+[data-theme='dark'] .navButton {
+  background: #2a2a2a;
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
+}
+
+[data-theme='dark'] .navButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .testimonialTooltip {
+  background: #2a2a2a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .testimonialTooltip::after {
+  border-top-color: #2a2a2a;
+}
+
+[data-theme='dark'] .quote {
+  border-top-color: var(--ifm-color-emphasis-300);
+}
+
+/* Mobile First - Responsive Design */
+@media (max-width: 996px) {
+  .brandsSection {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    line-height: 1.4;
+  }
+
+  .brandsContainer {
+    min-height: 400px;
+    padding: 1rem 0;
+  }
+
+  .brandsGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 2rem;
+    max-width: 100%;
+  }
+
+  .brandContainer {
+    padding: 1rem 0;
+  }
+
+  .brandLogo {
+    height: 80px;
+    max-width: 200px;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+  }
+
+  /* Hide desktop navigation buttons on mobile */
+  .navButton {
+    display: none;
+  }
+
+  /* Enhanced pagination for mobile */
+  .pagination {
+    margin-top: 2.5rem;
+    gap: 1rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dotActive {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Tooltip adjustments for mobile */
+  .testimonialTooltip {
+    min-width: 300px;
+    max-width: calc(100vw - 2rem);
+    padding: 1.25rem;
+  }
+
+  .avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .fullName {
+    font-size: 0.95rem;
+  }
+
+  .jobTitle {
+    font-size: 0.8rem;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .brandsContainer {
+    min-height: 350px;
+  }
+
+  .brandsGrid {
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .brandLogo {
+    height: 70px;
+    max-width: 180px;
+  }
+
+  .label {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .testimonialTooltip {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandsSection {
+    padding: 2rem 0;
+  }
+
+  .title {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .brandsContainer {
+    min-height: 300px;
+  }
+
+  .brandsGrid {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .brandLogo {
+    height: 60px;
+    max-width: 160px;
+  }
+
+  .pagination {
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dotActive {
+    width: 12px;
+    height: 12px;
+  }
+}
