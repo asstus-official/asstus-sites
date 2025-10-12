@@ -26,8 +26,8 @@ interface SegmentData {
 }
 
 // Default fallback images
-const DEFAULT_AVATAR = '/img/brands/default-avatar.png';
-const DEFAULT_LOGO = '/img/brands/default-logo.svg';
+const DEFAULT_AVATAR = '/brands/default-avatar.png';
+const DEFAULT_LOGO = '/brands/default-logo.svg';
 
 export default function FourthSection() {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
@@ -39,31 +39,19 @@ export default function FourthSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Scan brands directory to find all segment folders
-  const scanBrandsDirectory = async (): Promise<string[]> => {
-    try {
-      // Try to fetch index.json that lists all segment folders
-      const response = await fetch('/img/brands/index.json');
-      if (response.ok) {
-        const data = await response.json();
-        return data.segments || [];
-      }
-    } catch (error) {
-      console.warn('Could not load brands directory index');
-    }
-    return [];
-  };
+  // Hardcoded list of segment folders (since we don't have brands.json)
+  const SEGMENT_FOLDERS = ['entertainment', 'fashion', 'filming', 'music'];
 
   // Load segment data from segment's JSON file
   const loadSegmentData = async (segmentFolder: string): Promise<SegmentData | null> => {
     try {
-      const response = await fetch(`/img/brands/${segmentFolder}/${segmentFolder}.json`);
+      const response = await fetch(`/brands/${segmentFolder}/${segmentFolder}.json`);
       if (response.ok) {
         const data = await response.json();
         return data;
       }
     } catch (error) {
-      console.warn(`Could not load segment data for ${segmentFolder}`);
+      console.warn(`Could not load segment data for ${segmentFolder}:`, error);
     }
     return null;
   };
@@ -72,11 +60,8 @@ export default function FourthSection() {
   const loadAllBrands = async () => {
     const allBrands: { segmentName: string; brand: BrandItem }[] = [];
     
-    // Get list of segment folders
-    const segmentFolders = await scanBrandsDirectory();
-    
     // Load each segment's data
-    for (const segmentFolder of segmentFolders) {
+    for (const segmentFolder of SEGMENT_FOLDERS) {
       const segmentData = await loadSegmentData(segmentFolder);
       
       if (segmentData && segmentData.brands) {
@@ -89,6 +74,7 @@ export default function FourthSection() {
       }
     }
     
+    console.log('Loaded brands:', allBrands.length);
     return allBrands;
   };
 
@@ -121,8 +107,13 @@ export default function FourthSection() {
   useEffect(() => {
     const initBrands = async () => {
       const allBrands = await loadAllBrands();
-      const randomBrands = selectRandomBrands(allBrands);
-      setDisplayedBrands(randomBrands);
+      if (allBrands.length > 0) {
+        const randomBrands = selectRandomBrands(allBrands);
+        setDisplayedBrands(randomBrands);
+        console.log('Displaying brands:', randomBrands.length);
+      } else {
+        console.error('No brands loaded!');
+      }
     };
     
     initBrands();
@@ -163,8 +154,8 @@ export default function FourthSection() {
       return brandItem.brand.logoUrl;
     }
     
-    // Default path: /img/brands/{segment}/{brandname}-brand-logo.svg
-    return `/img/brands/${brandItem.segmentName}/${brandItem.brand.brandName}-brand-logo.svg`;
+    // Default path: /brands/{segment}/{brandname}-brand-logo.svg
+    return `/brands/${brandItem.segmentName}/${brandItem.brand.brandName}-brand-logo.svg`;
   };
 
   // Get avatar URL with fallback
@@ -180,12 +171,13 @@ export default function FourthSection() {
       return testimonial.avatar;
     }
     
-    // Otherwise, construct path: /img/brands/{segment}/{brandname}-avatar.svg
-    return `/img/brands/${segmentName}/${testimonial.brandName}-avatar.svg`;
+    // Otherwise, construct path: /brands/{segment}/{brandname}-avatar.svg
+    return `/brands/${segmentName}/${testimonial.brandName}-avatar.svg`;
   };
 
   // Handle image load error
   const handleImageError = (errorKey: string) => {
+    console.log('Image error:', errorKey);
     setImageErrors(prev => ({ ...prev, [errorKey]: true }));
   };
 
@@ -244,6 +236,21 @@ export default function FourthSection() {
   const hoveredBrandData = hoveredBrand 
     ? displayedBrands.find(b => b.brand.brandName === hoveredBrand)
     : null;
+
+  // Show loading state if no brands yet
+  if (displayedBrands.length === 0) {
+    return (
+      <section className="brands-section" style={{
+        padding: '4rem 0',
+        backgroundColor: 'var(--ifm-background-color)',
+        textAlign: 'center'
+      }}>
+        <div className="container">
+          <p>Loading brands...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="brands-section" style={{
