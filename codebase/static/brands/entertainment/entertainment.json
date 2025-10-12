@@ -1,0 +1,135 @@
+{
+  "segmentName": "entertainment",
+  "brands": [
+    {
+      "brandName": "live-nation",
+      "logoUrl": "https://logo.clearbit.com/livenation.com",
+      "testimonial": {
+        "brandName": "live-nation",
+        "labelName": "Case study",
+        "representative": "Live Nation Entertainment",
+        "avatar": "https://ui-avatars.com/api/?name=Michael+Rapino&size=200",
+        "fullName": "Michael Rapino",
+        "jobTitle": "President & CEO",
+        "quote": "Live events generate massive carbon emissions from travel, energy, and waste. We're committed to reducing our environmental impact by 50% per show by 2030."
+      }
+    },
+    {
+      "brandName": "aeg",
+      "logoUrl": "https://logo.clearbit.com/aegworldwide.com",
+      "testimonial": {
+        "brandName": "aeg",
+        "labelName": "Case study",
+        "representative": "AEG",
+        "avatar": "https://ui-avatars.com/api/?name=Dan+Beckerman&size=200",
+        "fullName": "Dan Beckerman",
+        "jobTitle": "President & CEO",
+        "quote": "Venues and events are energy-intensive. We're investing in renewable energy, sustainable operations, and helping artists reduce their touring carbon footprint."
+      }
+    },
+    {
+      "brandName": "glastonbury",
+      "logoUrl": "https://logo.clearbit.com/glastonburyfestivals.co.uk",
+      "testimonial": {
+        "brandName": "glastonbury",
+        "labelName": "Case study",
+        "representative": "Glastonbury Festival",
+        "avatar": "https://ui-avatars.com/api/?name=Emily+Eavis&size=200",
+        "fullName": "Emily Eavis",
+        "jobTitle": "Co-organizer",
+        "quote": "A festival of our scale has enormous environmental responsibility. We've banned plastic bottles and are working toward becoming carbon neutral through innovation and behavior change."
+      }
+    },
+    {
+      "brandName": "coachella",
+      "logoUrl": "https://logo.clearbit.com/coachella.com",
+      "testimonial": {
+        "brandName": "coachella",
+        "labelName": "Case study",
+        "representative": "Coachella",
+        "avatar": "https://ui-avatars.com/api/?name=Paul+Tollett&size=200",
+        "fullName": "Paul Tollett",
+        "jobTitle": "President, Goldenvoice",
+        "quote": "Large festivals create significant waste and emissions. We're implementing comprehensive sustainability programs including renewable energy and zero-waste initiatives."
+      }
+    },
+    {
+      "brandName": "cirque-du-soleil",
+      "logoUrl": "https://logo.clearbit.com/cirquedusoleil.com",
+      "testimonial": {
+        "brandName": "cirque-du-soleil",
+        "labelName": "Case study",
+        "representative": "Cirque du Soleil",
+        "avatar": "https://ui-avatars.com/api/?name=Daniel+Lamarre&size=200",
+        "fullName": "Stéphane Lefebvre",
+        "jobTitle": "CEO",
+        "quote": "Touring shows have complex carbon footprints. We're redesigning our logistics, using sustainable materials, and measuring every aspect of our environmental impact."
+      }
+    },
+    {
+      "brandName": "madison-square-garden",
+      "logoUrl": "https://logo.clearbit.com/msg.com",
+      "testimonial": {
+        "brandName": "madison-square-garden",
+        "labelName": "Case study",
+        "representative": "Madison Square Garden",
+        "avatar": "https://ui-avatars.com/api/?name=James+Dolan&size=200",
+        "fullName": "James L. Dolan",
+        "jobTitle": "Executive Chairman",
+        "quote": "Iconic venues must lead on sustainability. We're implementing energy-efficient systems and sustainable practices to reduce our carbon footprint significantly."
+      }
+    },
+    {
+      "brandName": "merlin",
+      "logoUrl": "https://logo.clearbit.com/merlinentertainments.biz",
+      "testimonial": {
+        "brandName": "merlin",
+        "labelName": "Case study",
+        "representative": "Merlin Entertainments",
+        "avatar": "https://ui-avatars.com/api/?name=Scott+O'Neil&size=200",
+        "fullName": "Scott O'Neil",
+        "jobTitle": "CEO",
+        "quote": "Theme parks consume enormous amounts of energy. We're transitioning to renewable energy and implementing circular economy principles across all attractions."
+      }
+    },
+    {
+      "brandName": "broadway",
+      "logoUrl": "https://logo.clearbit.com/broadway.org",
+      "testimonial": {
+        "brandName": "broadway",
+        "labelName": "Case study",
+        "representative": "The Broadway League",
+        "avatar": "https://ui-avatars.com/api/?name=Charlotte+St+Martin&size=200",
+        "fullName": "Charlotte St. Martin",
+        "jobTitle": "President",
+        "quote": "Broadway is going green. Our theaters are implementing energy-efficient lighting, sustainable materials, and comprehensive recycling programs to cut emissions."
+      }
+    },
+    {
+      "brandName": "caesars",
+      "logoUrl": "https://logo.clearbit.com/caesars.com",
+      "testimonial": {
+        "brandName": "caesars",
+        "labelName": "Case study",
+        "representative": "Caesars Entertainment",
+        "avatar": "https://ui-avatars.com/api/?name=Tom+Reeg&size=200",
+        "fullName": "Tom Reeg",
+        "jobTitle": "CEO",
+        "quote": "The hospitality and entertainment industry must address its climate impact. We're investing billions in sustainable operations and renewable energy across our properties."
+      }
+    },
+    {
+      "brandName": "wwe",
+      "logoUrl": "https://logo.clearbit.com/wwe.com",
+      "testimonial": {
+        "brandName": "wwe",
+        "labelName": "Case study",
+        "representative": "WWE",
+        "avatar": "https://ui-avatars.com/api/?name=Nick+Khan&size=200",
+        "fullName": "Nick Khan",
+        "jobTitle": "President",
+        "quote": "Live entertainment touring has a significant carbon footprint. We're measuring our impact and implementing strategies to reduce emissions across all our events."
+      }
+    }
+  ]
+}

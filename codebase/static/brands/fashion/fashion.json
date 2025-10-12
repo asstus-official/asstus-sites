@@ -1,0 +1,135 @@
+{
+  "segmentName": "fashion",
+  "brands": [
+    {
+      "brandName": "patagonia",
+      "logoUrl": "https://logo.clearbit.com/patagonia.com",
+      "testimonial": {
+        "brandName": "patagonia",
+        "labelName": "Case study",
+        "representative": "Patagonia",
+        "avatar": "https://ui-avatars.com/api/?name=Rose+Marcario&size=200",
+        "fullName": "Rose Marcario",
+        "jobTitle": "Former CEO",
+        "quote": "Climate change is the greatest threat to our planet. Every company has a responsibility to measure and reduce their carbon footprint across their entire supply chain."
+      }
+    },
+    {
+      "brandName": "allbirds",
+      "logoUrl": "https://logo.clearbit.com/allbirds.com",
+      "testimonial": {
+        "brandName": "allbirds",
+        "labelName": "Case study",
+        "representative": "Allbirds",
+        "avatar": "https://ui-avatars.com/api/?name=Tim+Brown&size=200",
+        "fullName": "Tim Brown",
+        "jobTitle": "Co-founder & Co-CEO",
+        "quote": "We believe every product should have a carbon footprint label, just like nutrition labels on food. Transparency drives accountability and innovation in reducing emissions."
+      }
+    },
+    {
+      "brandName": "eileen-fisher",
+      "logoUrl": "https://logo.clearbit.com/eileenfisher.com",
+      "testimonial": {
+        "brandName": "eileen-fisher",
+        "labelName": "Case study",
+        "representative": "Eileen Fisher",
+        "avatar": "https://ui-avatars.com/api/?name=Eileen+Fisher&size=200",
+        "fullName": "Eileen Fisher",
+        "jobTitle": "Founder",
+        "quote": "The fashion industry is responsible for 10% of global carbon emissions. We must reimagine our entire system to create clothing that respects both people and planet."
+      }
+    },
+    {
+      "brandName": "reformation",
+      "logoUrl": "https://logo.clearbit.com/thereformation.com",
+      "testimonial": {
+        "brandName": "reformation",
+        "labelName": "Case study",
+        "representative": "Reformation",
+        "avatar": "https://ui-avatars.com/api/?name=Yael+Aflalo&size=200",
+        "fullName": "Yael Aflalo",
+        "jobTitle": "Founder & CEO",
+        "quote": "Being naked is the most sustainable option, but we're here to make clothes that minimize environmental impact. Every garment we make has a RefScale that shows its environmental footprint."
+      }
+    },
+    {
+      "brandName": "veja",
+      "logoUrl": "https://logo.clearbit.com/veja-store.com",
+      "testimonial": {
+        "brandName": "veja",
+        "labelName": "Case study",
+        "representative": "Veja",
+        "avatar": "https://ui-avatars.com/api/?name=Sebastien+Kopp&size=200",
+        "fullName": "Sébastien Kopp",
+        "jobTitle": "Co-founder",
+        "quote": "Transparency about our carbon footprint isn't optional anymore. Consumers deserve to know the true environmental cost of what they're buying."
+      }
+    },
+    {
+      "brandName": "nudie-jeans",
+      "logoUrl": "https://logo.clearbit.com/nudiejeans.com",
+      "testimonial": {
+        "brandName": "nudie-jeans",
+        "labelName": "Case study",
+        "representative": "Nudie Jeans",
+        "avatar": "https://ui-avatars.com/api/?name=Maria+Erixon&size=200",
+        "fullName": "Maria Erixon",
+        "jobTitle": "Sustainability Manager",
+        "quote": "The denim industry has a massive carbon footprint. By using organic cotton and offering free repairs, we're extending product life and cutting emissions significantly."
+      }
+    },
+    {
+      "brandName": "stella-mccartney",
+      "logoUrl": "https://logo.clearbit.com/stellamccartney.com",
+      "testimonial": {
+        "brandName": "stella-mccartney",
+        "labelName": "Case study",
+        "representative": "Stella McCartney",
+        "avatar": "https://ui-avatars.com/api/?name=Stella+McCartney&size=200",
+        "fullName": "Stella McCartney",
+        "jobTitle": "Founder & Designer",
+        "quote": "Luxury fashion has no excuse not to be sustainable. We've proven you can create beautiful, desirable products while dramatically reducing carbon emissions."
+      }
+    },
+    {
+      "brandName": "armedangels",
+      "logoUrl": "https://logo.clearbit.com/armedangels.com",
+      "testimonial": {
+        "brandName": "armedangels",
+        "labelName": "Case study",
+        "representative": "Armed Angels",
+        "avatar": "https://ui-avatars.com/api/?name=Martin+Hofticher&size=200",
+        "fullName": "Martin Höfter",
+        "jobTitle": "Co-founder",
+        "quote": "Fast fashion's carbon impact is devastating. We're proving that sustainable, fair fashion can compete with fast fashion on style and price."
+      }
+    },
+    {
+      "brandName": "pangaia",
+      "logoUrl": "https://logo.clearbit.com/pangaia.com",
+      "testimonial": {
+        "brandName": "pangaia",
+        "labelName": "Case study",
+        "representative": "Pangaia",
+        "avatar": "https://ui-avatars.com/api/?name=Maria+Sojka&size=200",
+        "fullName": "Maria Sojka",
+        "jobTitle": "Chief Impact Officer",
+        "quote": "Material innovation is key to decarbonizing fashion. We're developing bio-based alternatives that can reduce emissions by up to 70% compared to conventional materials."
+      }
+    },
+    {
+      "brandName": "tentree",
+      "logoUrl": "https://logo.clearbit.com/tentree.com",
+      "testimonial": {
+        "brandName": "tentree",
+        "labelName": "Case study",
+        "representative": "Tentree",
+        "avatar": "https://ui-avatars.com/api/?name=Derrick+Emsley&size=200",
+        "fullName": "Derrick Emsley",
+        "jobTitle": "Co-founder & CEO",
+        "quote": "For every product sold, we plant ten trees. This isn't just offsetting carbon - it's about creating a net positive impact and inspiring others to do the same."
+      }
+    }
+  ]
+}
