@@ -1,134 +1,175 @@
 {
   "segmentName": "filming",
+  "segmentPath": "static/brand/filming"
   "brands": [
     {
-      "brandName": "netflix",
+      "brandName": "Netflix",
+      "brandSite": "about.netflix.com",
       "logoUrl": "https://logo.clearbit.com/netflix.com",
+      "logoName": "Netflix-logo.png",
       "testimonial": {
-        "brandName": "netflix",
-        "labelName": "Case study",
-        "representative": "Netflix",
-        "avatar": "https://ui-avatars.com/api/?name=Emma+Stewart&size=200",
-        "fullName": "Emma Stewart",
-        "jobTitle": "Sustainability Officer",
-        "quote": "The entertainment industry's carbon footprint is massive. We're committed to reaching net zero emissions by 2030 and helping productions measure and reduce their environmental impact."
+        "brandName": "Netflix",
+        "labelName": "potential",
+        "representative": "Netflix, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Ted+Sarandos&size=200&background=e50914&color=ffffff",
+        "avatarName": "Netflix-avatar.png",
+        "fullName": "Ted Sarandos",
+        "jobTitle": "Co-CEO",
+        "quote": "Our commitment to inclusion is a cornerstone of our social impact efforts. To entertain an audience this global, our company needs to reflect the world and the variety of stories we tell.",
+        "resource": "https://ir.netflix.net/governance/ESG/default.aspx"
       }
     },
     {
-      "brandName": "disney",
-      "logoUrl": "https://logo.clearbit.com/disney.com",
+      "brandName": "Disney",
+      "brandSite": "thewaltdisneycompany.com",
+      "logoUrl": "https://logo.clearbit.com/thewaltdisneycompany.com",
+      "logoName": "Disney-logo.png",
       "testimonial": {
-        "brandName": "disney",
-        "labelName": "Case study",
+        "brandName": "Disney",
+        "labelName": "potential",
         "representative": "The Walt Disney Company",
-        "avatar": "https://ui-avatars.com/api/?name=Bob+Iger&size=200",
+        "avatar": "https://ui-avatars.com/api/?name=Bob+Iger&size=200&background=00408b&color=ffffff",
+        "avatarName": "Disney-avatar.png",
         "fullName": "Bob Iger",
         "jobTitle": "CEO",
-        "quote": "As storytellers, we have a responsibility to protect the planet for future generations. We're working to achieve net zero emissions across our entire production chain."
+        "quote": "Environmental, Social and Governance goals are integral to our strategy and long-term value creation. We are committed to operating in a manner that creates a more sustainable future for our business.",
+        "resource": "https://www.thewaltdisneycompany.com/environmental-social-and-governance/"
       }
     },
     {
-      "brandName": "warner-bros",
-      "logoUrl": "https://logo.clearbit.com/warnerbros.com",
+      "brandName": "Sony",
+      "brandSite": "sony.com",
+      "logoUrl": "https://logo.clearbit.com/sony.com",
+      "logoName": "Sony-logo.png",
       "testimonial": {
-        "brandName": "warner-bros",
-        "labelName": "Case study",
+        "brandName": "Sony",
+        "labelName": "potential",
+        "representative": "Sony Group Corporation (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Kenichiro+Yoshida&size=200&background=000000&color=ffffff",
+        "avatarName": "Sony-avatar.png",
+        "fullName": "Kenichiro Yoshida",
+        "jobTitle": "Chairman, President and CEO",
+        "quote": "Sustainability is a fundamental pillar of our corporate philosophy and a source of innovation... We strive to celebrate individual differences and enrich hearts and minds so that people can share Kando with one another.",
+        "resource": "https://www.sony.com/en/SonyInfo/csr/library/reports/SustainabilityReport2024_E.pdf"
+      }
+    },
+    {
+      "brandName": "Paramount",
+      "brandSite": "paramount.com",
+      "logoUrl": "https://logo.clearbit.com/paramount.com",
+      "logoName": "Paramount-logo.png",
+      "testimonial": {
+        "brandName": "Paramount",
+        "labelName": "potential",
+        "representative": "Paramount Global",
+        "avatar": "https://ui-avatars.com/api/?name=Bob+Bakish&size=200&background=000000&color=ffffff",
+        "avatarName": "Paramount-avatar.png",
+        "fullName": "Bob Bakish",
+        "jobTitle": "CEO",
+        "quote": "We have an important role to play in tackling society's most pressing issues. Our mission is to promote inclusion, protect the planet, and power the next generation of storytellers.",
+        "resource": "https://www.paramount.com/impact/esg-strategy"
+      }
+    },
+    {
+      "brandName": "WBD",
+      "brandSite": "wbd.com",
+      "logoUrl": "https://logo.clearbit.com/wbd.com",
+      "logoName": "WBD-logo.png",
+      "testimonial": {
+        "brandName": "WBD",
+        "labelName": "potential",
         "representative": "Warner Bros. Discovery",
-        "avatar": "https://ui-avatars.com/api/?name=David+Zaslav&size=200",
+        "avatar": "https://ui-avatars.com/api/?name=David+Zaslav&size=200&background=0067ff&color=ffffff",
+        "avatarName": "WBD-avatar.png",
         "fullName": "David Zaslav",
         "jobTitle": "CEO",
-        "quote": "Every production has an environmental cost. We're implementing green production standards to significantly reduce carbon emissions across all our content creation."
+        "quote": "We champion authentic voices, perspectives, and experiences in our workforce and our world. We are committed to fostering an ethical, respected, successful, and inclusive global media and entertainment company.",
+        "resource": "https://www.wbd.com/impact"
       }
     },
     {
-      "brandName": "sony-pictures",
-      "logoUrl": "https://logo.clearbit.com/sonypictures.com",
+      "brandName": "CJ ENM",
+      "brandSite": "cjenm.com",
+      "logoUrl": "https://logo.clearbit.com/cjenm.com",
+      "logoName": "CJ ENM-logo.png",
       "testimonial": {
-        "brandName": "sony-pictures",
-        "labelName": "Case study",
-        "representative": "Sony Pictures Entertainment",
-        "avatar": "https://ui-avatars.com/api/?name=Tony+Vinciquerra&size=200",
-        "fullName": "Tony Vinciquerra",
-        "jobTitle": "Chairman & CEO",
-        "quote": "Sustainable filmmaking is no longer optional. We're investing in renewable energy on sets and requiring carbon accounting on all major productions."
-      }
-    },
-    {
-      "brandName": "paramount",
-      "logoUrl": "https://logo.clearbit.com/paramount.com",
-      "testimonial": {
-        "brandName": "paramount",
-        "labelName": "Case study",
-        "representative": "Paramount Pictures",
-        "avatar": "https://ui-avatars.com/api/?name=Brian+Robbins&size=200",
-        "fullName": "Brian Robbins",
-        "jobTitle": "President & CEO",
-        "quote": "Film and TV production generates significant emissions from energy use, transportation, and waste. We're pioneering solutions to make every shoot more sustainable."
-      }
-    },
-    {
-      "brandName": "bbc-studios",
-      "logoUrl": "https://logo.clearbit.com/bbcstudios.com",
-      "testimonial": {
-        "brandName": "bbc-studios",
-        "labelName": "Case study",
-        "representative": "BBC Studios",
-        "avatar": "https://ui-avatars.com/api/?name=Tom+Fussell&size=200",
-        "fullName": "Tom Fussell",
+        "brandName": "CJ ENM",
+        "labelName": "potential",
+        "representative": "CJ ENM Co., Ltd. (Asia: South Korea)",
+        "avatar": "https://ui-avatars.com/api/?name=Yoon+Sang+Hyun&size=200&background=ff7f00&color=ffffff",
+        "avatarName": "CJ ENM-avatar.png",
+        "fullName": "Yoon, Sang Hyun",
         "jobTitle": "CEO",
-        "quote": "The BBC has committed to becoming a net zero organization. Every production now must measure its carbon footprint and implement reduction strategies."
+        "quote": "CJ ENM will continue to engage closely with our stakeholders, fulfill our social responsibilities, and pursue sustainable management that creates both financial performance and non-financial value simultaneously.",
+        "resource": "https://www.cjenm.com/en/esg/philosophy/ceo-message/"
       }
     },
     {
-      "brandName": "sky",
-      "logoUrl": "https://logo.clearbit.com/sky.com",
+      "brandName": "Sony Pictures",
+      "brandSite": "sonypictures.com",
+      "logoUrl": "https://logo.clearbit.com/sonypictures.com",
+      "logoName": "Sony Pictures-logo.png",
       "testimonial": {
-        "brandName": "sky",
-        "labelName": "Case study",
-        "representative": "Sky",
-        "avatar": "https://ui-avatars.com/api/?name=Dana+Strong&size=200",
-        "fullName": "Dana Strong",
-        "jobTitle": "Group CEO",
-        "quote": "We became carbon neutral in 2006 and now we're going further - aiming to be net zero carbon by 2030 across our entire value chain, including all content production."
+        "brandName": "Sony Pictures",
+        "labelName": "potential",
+        "representative": "Sony Pictures Entertainment",
+        "avatar": "https://ui-avatars.com/api/?name=Ravi+Ahuja&size=200&background=000000&color=ffffff",
+        "avatarName": "Sony Pictures-avatar.png",
+        "fullName": "Ravi Ahuja",
+        "jobTitle": "President and CEO",
+        "quote": "Our Responsible Sourcing group recognizes and collaborates with businesses that bring unique perspectives to the table. The talent and insights they offer are critical to driving growth and sparking continued innovation.",
+        "resource": "https://www.sonypictures.com/corp/corporateimpact.html"
       }
     },
     {
-      "brandName": "nbcuniversal",
-      "logoUrl": "https://logo.clearbit.com/nbcuniversal.com",
-      "testimonial": {
-        "brandName": "nbcuniversal",
-        "labelName": "Case study",
-        "representative": "NBCUniversal",
-        "avatar": "https://ui-avatars.com/api/?name=Jeff+Shell&size=200",
-        "fullName": "Mike Cavanagh",
-        "jobTitle": "President",
-        "quote": "Green production isn't just good for the planet - it's good for business. We're reducing waste, cutting energy use, and inspiring the industry to follow."
-      }
-    },
-    {
-      "brandName": "lionsgate",
+      "brandName": "Lionsgate",
+      "brandSite": "lionsgate.com",
       "logoUrl": "https://logo.clearbit.com/lionsgate.com",
+      "logoName": "Lionsgate-logo.png",
       "testimonial": {
-        "brandName": "lionsgate",
-        "labelName": "Case study",
-        "representative": "Lionsgate",
-        "avatar": "https://ui-avatars.com/api/?name=Jon+Feltheimer&size=200",
+        "brandName": "Lionsgate",
+        "labelName": "potential",
+        "representative": "Lionsgate Entertainment Corp.",
+        "avatar": "https://ui-avatars.com/api/?name=Jon+Feltheimer&size=200&background=c70039&color=ffffff",
+        "avatarName": "Lionsgate-avatar.png",
         "fullName": "Jon Feltheimer",
         "jobTitle": "CEO",
-        "quote": "The carbon cost of content creation is real. We're implementing comprehensive sustainability programs to track and reduce emissions on every project."
+        "quote": "Our commitment to diversity, equity, and inclusion is both a moral imperative and a business necessity that strengthens our teams and enriches the stories we tell.",
+        "resource": "https://corporate.lionsgate.com/corporate-social-responsibility"
       }
     },
     {
-      "brandName": "a24",
-      "logoUrl": "https://logo.clearbit.com/a24films.com",
+      "brandName": "Tencent",
+      "brandSite": "tencent.com",
+      "logoUrl": "https://logo.clearbit.com/tencent.com",
+      "logoName": "Tencent-logo.png",
       "testimonial": {
-        "brandName": "a24",
-        "labelName": "Case study",
-        "representative": "A24",
-        "avatar": "https://ui-avatars.com/api/?name=Daniel+Katz&size=200",
-        "fullName": "Daniel Katz",
-        "jobTitle": "Co-founder",
-        "quote": "Independent cinema has a unique opportunity to lead on sustainability. Smaller productions can innovate faster and prove that low-carbon filmmaking is achievable."
+        "brandName": "Tencent",
+        "labelName": "potential",
+        "representative": "Tencent Holdings Ltd. (Asia: China)",
+        "avatar": "https://ui-avatars.com/api/?name=Pony+Ma&size=200&background=000000&color=ffffff",
+        "avatarName": "Tencent-avatar.png",
+        "fullName": "Pony Ma (Ma Huateng)",
+        "jobTitle": "Chairman and CEO",
+        "quote": "We are determined to play a greater role in safeguarding the environment and contributing to the well-being of society, leveraging technology to foster positive social value through digital culture and content.",
+        "resource": "https://www.tencent.com/en-us/esg.html"
+      }
+    },
+    {
+      "brandName": "Comcast",
+      "brandSite": "corporate.comcast.com",
+      "logoUrl": "https://logo.clearbit.com/comcast.com",
+      "logoName": "Comcast-logo.png",
+      "testimonial": {
+        "brandName": "Comcast",
+        "labelName": "potential",
+        "representative": "Comcast Corporation (NBCUniversal Parent)",
+        "avatar": "https://ui-avatars.com/api/?name=Brian+L+Roberts&size=200&background=ff5500&color=ffffff",
+        "avatarName": "Comcast-avatar.png",
+        "fullName": "Brian L. Roberts",
+        "jobTitle": "Chairman & CEO",
+        "quote": "We recognize our responsibility to use our reach and resources to make a difference in the world. Our commitment to sustainable practices and social impact is embedded in how we connect and create.",
+        "resource": "https://corporate.comcast.com/impact/corporate-responsibility"
       }
     }
   ]
