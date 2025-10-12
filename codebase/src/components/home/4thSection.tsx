@@ -26,7 +26,7 @@ interface SegmentData {
 }
 
 // Default fallback images
-const DEFAULT_AVATAR = '/img/brands/default-avatar.jpg';
+const DEFAULT_AVATAR = '/img/brands/default-avatar.png';
 const DEFAULT_LOGO = '/img/brands/default-logo.svg';
 
 export default function FourthSection() {
