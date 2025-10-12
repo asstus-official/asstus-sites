@@ -706,7 +706,7 @@ export default function FourthSection() {
                   className="brand-container"
                   onMouseEnter={(e) => handleMouseEnter(brandItem, e)}
                   onMouseLeave={handleMouseLeave}
-                
+                >
                   <div className="brand-logo-wrapper">
                     <img
                       src={getLogoUrl(brandItem)}
