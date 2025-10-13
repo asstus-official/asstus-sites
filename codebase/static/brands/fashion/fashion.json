@@ -1,134 +1,175 @@
 {
   "segmentName": "fashion",
+  "segmentPath": "static/brand/fashion",
   "brands": [
     {
-      "brandName": "patagonia",
+      "brandName": "Nike",
+      "brandSite": "nike.com",
+      "logoUrl": "https://logo.clearbit.com/nike.com",
+      "logoName": "Nike-logo.png",
+      "testimonial": {
+        "brandName": "Nike",
+        "labelName": "potential",
+        "representative": "Nike, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=John+Donahoe&size=200&background=000000&color=ffffff",
+        "avatarName": "Nike-avatar.png",
+        "fullName": "John Donahoe",
+        "jobTitle": "President & CEO",
+        "quote": "Our purpose is to move the world forward through the power of sport. We're committed to protecting the future of sport by addressing climate change and creating a more sustainable and equitable world.",
+        "resource": "https://purpose.nike.com/sustainability-reporting"
+      }
+    },
+    {
+      "brandName": "Adidas",
+      "brandSite": "adidas-group.com",
+      "logoUrl": "https://logo.clearbit.com/adidas.com",
+      "logoName": "Adidas-logo.png",
+      "testimonial": {
+        "brandName": "Adidas",
+        "labelName": "potential",
+        "representative": "adidas AG",
+        "avatar": "https://ui-avatars.com/api/?name=Bjorn+Gulden&size=200&background=000000&color=ffffff",
+        "avatarName": "Adidas-avatar.png",
+        "fullName": "Bjorn Gulden",
+        "jobTitle": "CEO",
+        "quote": "Sustainability is not a side project at adidas. It is core to everything we do. We are committed to ending plastic waste and helping create a better future for our planet.",
+        "resource": "https://www.adidas-group.com/en/sustainability/managing-sustainability/general-approach/"
+      }
+    },
+    {
+      "brandName": "Uniqlo",
+      "brandSite": "uniqlo.com",
+      "logoUrl": "https://logo.clearbit.com/uniqlo.com",
+      "logoName": "Uniqlo-logo.png",
+      "testimonial": {
+        "brandName": "Uniqlo",
+        "labelName": "potential",
+        "representative": "Fast Retailing Co., Ltd. (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Tadashi+Yanai&size=200&background=ed1c24&color=ffffff",
+        "avatarName": "Uniqlo-avatar.png",
+        "fullName": "Tadashi Yanai",
+        "jobTitle": "Chairman, President & CEO",
+        "quote": "We believe that truly great apparel is made to enrich the lives of all people. Our sustainability initiatives focus on respecting human rights, protecting the environment, and supporting local communities.",
+        "resource": "https://www.fastretailing.com/eng/sustainability/"
+      }
+    },
+    {
+      "brandName": "HM",
+      "brandSite": "hmgroup.com",
+      "logoUrl": "https://logo.clearbit.com/hm.com",
+      "logoName": "HM-logo.png",
+      "testimonial": {
+        "brandName": "HM",
+        "labelName": "potential",
+        "representative": "H&M Group",
+        "avatar": "https://ui-avatars.com/api/?name=Helena+Helmersson&size=200&background=e50010&color=ffffff",
+        "avatarName": "HM-avatar.png",
+        "fullName": "Helena Helmersson",
+        "jobTitle": "CEO",
+        "quote": "We want to lead the change towards a circular and climate positive fashion industry while being a fair and equal company. Sustainability is fully integrated into our business strategy.",
+        "resource": "https://hmgroup.com/sustainability/"
+      }
+    },
+    {
+      "brandName": "Zara",
+      "brandSite": "inditex.com",
+      "logoUrl": "https://logo.clearbit.com/zara.com",
+      "logoName": "Zara-logo.png",
+      "testimonial": {
+        "brandName": "Zara",
+        "labelName": "potential",
+        "representative": "Inditex (Zara Parent)",
+        "avatar": "https://ui-avatars.com/api/?name=Oscar+Garcia+Maceiras&size=200&background=000000&color=ffffff",
+        "avatarName": "Zara-avatar.png",
+        "fullName": "Oscar Garcia Maceiras",
+        "jobTitle": "CEO",
+        "quote": "Our commitment to the environment is based on circularity, decarbonization, and biodiversity protection. We aim to use 100% sustainable fabrics and achieve net-zero emissions across our value chain.",
+        "resource": "https://www.inditex.com/itxcomweb/en/sustainability"
+      }
+    },
+    {
+      "brandName": "Gucci",
+      "brandSite": "gucci.com",
+      "logoUrl": "https://logo.clearbit.com/gucci.com",
+      "logoName": "Gucci-logo.png",
+      "testimonial": {
+        "brandName": "Gucci",
+        "labelName": "potential",
+        "representative": "Gucci (Kering Group)",
+        "avatar": "https://ui-avatars.com/api/?name=Marco+Bizzarri&size=200&background=000000&color=ffffff",
+        "avatarName": "Gucci-avatar.png",
+        "fullName": "Marco Bizzarri",
+        "jobTitle": "President & CEO",
+        "quote": "Gucci Equilibrium represents our commitment to generating positive social and environmental impact. We believe luxury and sustainability must go hand in hand.",
+        "resource": "https://equilibrium.gucci.com/"
+      }
+    },
+    {
+      "brandName": "Patagonia",
+      "brandSite": "patagonia.com",
       "logoUrl": "https://logo.clearbit.com/patagonia.com",
+      "logoName": "Patagonia-logo.png",
       "testimonial": {
-        "brandName": "patagonia",
-        "labelName": "Case study",
-        "representative": "Patagonia",
-        "avatar": "https://ui-avatars.com/api/?name=Rose+Marcario&size=200",
-        "fullName": "Rose Marcario",
-        "jobTitle": "Former CEO",
-        "quote": "Climate change is the greatest threat to our planet. Every company has a responsibility to measure and reduce their carbon footprint across their entire supply chain."
+        "brandName": "Patagonia",
+        "labelName": "potential",
+        "representative": "Patagonia, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Ryan+Gellert&size=200&background=000000&color=ffffff",
+        "avatarName": "Patagonia-avatar.png",
+        "fullName": "Ryan Gellert",
+        "jobTitle": "CEO",
+        "quote": "We're in business to save our home planet. Every decision we make considers our impact on the environment and our ability to inspire solutions to the climate crisis.",
+        "resource": "https://www.patagonia.com/our-footprint/"
       }
     },
     {
-      "brandName": "allbirds",
-      "logoUrl": "https://logo.clearbit.com/allbirds.com",
+      "brandName": "Levi",
+      "brandSite": "levistrauss.com",
+      "logoUrl": "https://logo.clearbit.com/levi.com",
+      "logoName": "Levi-logo.png",
       "testimonial": {
-        "brandName": "allbirds",
-        "labelName": "Case study",
-        "representative": "Allbirds",
-        "avatar": "https://ui-avatars.com/api/?name=Tim+Brown&size=200",
-        "fullName": "Tim Brown",
-        "jobTitle": "Co-founder & Co-CEO",
-        "quote": "We believe every product should have a carbon footprint label, just like nutrition labels on food. Transparency drives accountability and innovation in reducing emissions."
+        "brandName": "Levi",
+        "labelName": "potential",
+        "representative": "Levi Strauss & Co.",
+        "avatar": "https://ui-avatars.com/api/?name=Chip+Bergh&size=200&background=d32f2f&color=ffffff",
+        "avatarName": "Levi-avatar.png",
+        "fullName": "Chip Bergh",
+        "jobTitle": "President & CEO",
+        "quote": "We believe that business can be a force for positive change. Our sustainability strategy focuses on climate action, water stewardship, and advancing worker well-being across our supply chain.",
+        "resource": "https://www.levistrauss.com/sustainability/"
       }
     },
     {
-      "brandName": "eileen-fisher",
-      "logoUrl": "https://logo.clearbit.com/eileenfisher.com",
+      "brandName": "Puma",
+      "brandSite": "puma.com",
+      "logoUrl": "https://logo.clearbit.com/puma.com",
+      "logoName": "Puma-logo.png",
       "testimonial": {
-        "brandName": "eileen-fisher",
-        "labelName": "Case study",
-        "representative": "Eileen Fisher",
-        "avatar": "https://ui-avatars.com/api/?name=Eileen+Fisher&size=200",
-        "fullName": "Eileen Fisher",
-        "jobTitle": "Founder",
-        "quote": "The fashion industry is responsible for 10% of global carbon emissions. We must reimagine our entire system to create clothing that respects both people and planet."
+        "brandName": "Puma",
+        "labelName": "potential",
+        "representative": "PUMA SE",
+        "avatar": "https://ui-avatars.com/api/?name=Arne+Freundt&size=200&background=000000&color=ffffff",
+        "avatarName": "Puma-avatar.png",
+        "fullName": "Arne Freundt",
+        "jobTitle": "CEO",
+        "quote": "Forever Better is our commitment to reduce our environmental impact and create positive social change. We strive for a better future through innovation and sustainable practices.",
+        "resource": "https://about.puma.com/en/forever-better"
       }
     },
     {
-      "brandName": "reformation",
-      "logoUrl": "https://logo.clearbit.com/thereformation.com",
+      "brandName": "Burberry",
+      "brandSite": "burberryplc.com",
+      "logoUrl": "https://logo.clearbit.com/burberry.com",
+      "logoName": "Burberry-logo.png",
       "testimonial": {
-        "brandName": "reformation",
-        "labelName": "Case study",
-        "representative": "Reformation",
-        "avatar": "https://ui-avatars.com/api/?name=Yael+Aflalo&size=200",
-        "fullName": "Yael Aflalo",
-        "jobTitle": "Founder & CEO",
-        "quote": "Being naked is the most sustainable option, but we're here to make clothes that minimize environmental impact. Every garment we make has a RefScale that shows its environmental footprint."
-      }
-    },
-    {
-      "brandName": "veja",
-      "logoUrl": "https://logo.clearbit.com/veja-store.com",
-      "testimonial": {
-        "brandName": "veja",
-        "labelName": "Case study",
-        "representative": "Veja",
-        "avatar": "https://ui-avatars.com/api/?name=Sebastien+Kopp&size=200",
-        "fullName": "Sébastien Kopp",
-        "jobTitle": "Co-founder",
-        "quote": "Transparency about our carbon footprint isn't optional anymore. Consumers deserve to know the true environmental cost of what they're buying."
-      }
-    },
-    {
-      "brandName": "nudie-jeans",
-      "logoUrl": "https://logo.clearbit.com/nudiejeans.com",
-      "testimonial": {
-        "brandName": "nudie-jeans",
-        "labelName": "Case study",
-        "representative": "Nudie Jeans",
-        "avatar": "https://ui-avatars.com/api/?name=Maria+Erixon&size=200",
-        "fullName": "Maria Erixon",
-        "jobTitle": "Sustainability Manager",
-        "quote": "The denim industry has a massive carbon footprint. By using organic cotton and offering free repairs, we're extending product life and cutting emissions significantly."
-      }
-    },
-    {
-      "brandName": "stella-mccartney",
-      "logoUrl": "https://logo.clearbit.com/stellamccartney.com",
-      "testimonial": {
-        "brandName": "stella-mccartney",
-        "labelName": "Case study",
-        "representative": "Stella McCartney",
-        "avatar": "https://ui-avatars.com/api/?name=Stella+McCartney&size=200",
-        "fullName": "Stella McCartney",
-        "jobTitle": "Founder & Designer",
-        "quote": "Luxury fashion has no excuse not to be sustainable. We've proven you can create beautiful, desirable products while dramatically reducing carbon emissions."
-      }
-    },
-    {
-      "brandName": "armedangels",
-      "logoUrl": "https://logo.clearbit.com/armedangels.com",
-      "testimonial": {
-        "brandName": "armedangels",
-        "labelName": "Case study",
-        "representative": "Armed Angels",
-        "avatar": "https://ui-avatars.com/api/?name=Martin+Hofticher&size=200",
-        "fullName": "Martin Höfter",
-        "jobTitle": "Co-founder",
-        "quote": "Fast fashion's carbon impact is devastating. We're proving that sustainable, fair fashion can compete with fast fashion on style and price."
-      }
-    },
-    {
-      "brandName": "pangaia",
-      "logoUrl": "https://logo.clearbit.com/pangaia.com",
-      "testimonial": {
-        "brandName": "pangaia",
-        "labelName": "Case study",
-        "representative": "Pangaia",
-        "avatar": "https://ui-avatars.com/api/?name=Maria+Sojka&size=200",
-        "fullName": "Maria Sojka",
-        "jobTitle": "Chief Impact Officer",
-        "quote": "Material innovation is key to decarbonizing fashion. We're developing bio-based alternatives that can reduce emissions by up to 70% compared to conventional materials."
-      }
-    },
-    {
-      "brandName": "tentree",
-      "logoUrl": "https://logo.clearbit.com/tentree.com",
-      "testimonial": {
-        "brandName": "tentree",
-        "labelName": "Case study",
-        "representative": "Tentree",
-        "avatar": "https://ui-avatars.com/api/?name=Derrick+Emsley&size=200",
-        "fullName": "Derrick Emsley",
-        "jobTitle": "Co-founder & CEO",
-        "quote": "For every product sold, we plant ten trees. This isn't just offsetting carbon - it's about creating a net positive impact and inspiring others to do the same."
+        "brandName": "Burberry",
+        "labelName": "potential",
+        "representative": "Burberry Group plc",
+        "avatar": "https://ui-avatars.com/api/?name=Jonathan+Akeroyd&size=200&background=000000&color=ffffff",
+        "avatarName": "Burberry-avatar.png",
+        "fullName": "Jonathan Akeroyd",
+        "jobTitle": "CEO",
+        "quote": "Our Responsibility strategy focuses on climate action, championing the next generation, and crafting with purpose. We are committed to becoming climate positive by 2040.",
+        "resource": "https://www.burberryplc.com/en/responsibility.html"
       }
     }
   ]

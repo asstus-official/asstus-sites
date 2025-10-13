@@ -39,7 +39,7 @@ export default function FourthSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Hardcoded list of segment folders (since we don't have brands.json)
+  // Hardcoded list of segment folders
   const SEGMENT_FOLDERS = ['entertainment', 'fashion', 'filming', 'music'];
 
   // Load segment data from segment's JSON file
@@ -129,8 +129,8 @@ export default function FourthSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Calculate pagination
-  const brandsPerPage = isMobile ? 3 : 6;
+  // Calculate pagination - 3 rows × 5 logos (desktop) or 3 rows × 3 logos (mobile)
+  const brandsPerPage = isMobile ? 9 : 15; // 3×3 or 3×5
   const totalPages = Math.ceil(displayedBrands.length / brandsPerPage);
   const startIndex = currentPage * brandsPerPage;
   const endIndex = startIndex + brandsPerPage;
@@ -253,12 +253,14 @@ export default function FourthSection() {
   }
 
   return (
-    <section className="brands-section" style={{
-      padding: '4rem 0',
-      backgroundColor: 'var(--ifm-background-color)',
-      position: 'relative'
-    }}>
+    <section className="brands-section">
       <style>{`
+        .brands-section {
+          padding: 4rem 0;
+          background-color: var(--ifm-background-color);
+          position: relative;
+        }
+        
         .brands-section .brands-header {
           text-align: center;
           margin-bottom: 3rem;
@@ -278,18 +280,18 @@ export default function FourthSection() {
           align-items: center;
           justify-content: center;
           padding: 2rem 0;
-          min-height: 300px;
+          min-height: 400px;
         }
         
         .brands-section .brands-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 3rem;
-          max-width: 900px;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 2rem 1.5rem;
+          max-width: 1200px;
           width: 100%;
           justify-items: center;
           align-items: center;
-          padding: 0 4rem;
+          padding: 0 5rem;
         }
         
         .brands-section .brand-container {
@@ -312,6 +314,8 @@ export default function FourthSection() {
           align-items: center;
           justify-content: center;
           padding: 1rem;
+          width: 100%;
+          height: 100px;
         }
         
         .brands-section .brand-logo {
@@ -319,30 +323,45 @@ export default function FourthSection() {
           width: auto;
           max-width: 160px;
           object-fit: contain;
-          filter: grayscale(100%);
+          filter: grayscale(100%) brightness(0.5) sepia(100%) hue-rotate(10deg) saturate(5);
           opacity: 0.7;
           transition: all 0.3s ease;
         }
         
         .brands-section .brand-container:hover .brand-logo {
-          filter: grayscale(0%);
+          filter: none;
           opacity: 1;
         }
         
         .brands-section .brand-label {
           position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          background-color: #4A90E2;
+          bottom: 5px;
+          left: 5px;
+          background-color: #FF6D00;
           color: white;
-          padding: 0.3rem 0.8rem;
-          border-radius: 12px;
-          font-size: 0.7rem;
+          padding: 0.15rem 0.4rem;
+          border-radius: 6px;
+          font-size: 0.55rem;
           font-weight: 600;
           white-space: nowrap;
-          box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+          box-shadow: 0 1px 4px rgba(255, 109, 0, 0.3);
           z-index: 5;
+        }
+        
+        .brands-section .segment-label {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          background-color: #FF8A33;
+          color: white;
+          padding: 0.15rem 0.4rem;
+          border-radius: 6px;
+          font-size: 0.55rem;
+          font-weight: 600;
+          white-space: nowrap;
+          box-shadow: 0 1px 4px rgba(255, 138, 51, 0.3);
+          z-index: 5;
+          text-transform: capitalize;
         }
         
         .brands-section .nav-button {
@@ -357,12 +376,14 @@ export default function FourthSection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 2rem;
+          font-size: 1.5rem;
+          line-height: 1;
           color: var(--ifm-color-emphasis-700);
           cursor: pointer;
           transition: all 0.3s ease;
           z-index: 10;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          padding: 0;
         }
         
         .brands-section .nav-button:hover {
@@ -541,256 +562,22 @@ export default function FourthSection() {
           }
           
           .brands-section .brands-container {
-            min-height: 400px;
+            min-height: 500px;
             padding: 1rem 0;
           }
           
           .brands-section .brands-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem 1rem;
             padding: 0 2rem;
             max-width: 100%;
           }
           
           .brands-section .brand-container {
-            padding: 1rem 0;
-          }
-          
-          .brands-section .brand-logo {
-            height: 80px;
-            max-width: 200px;
-          }
-          
-          .brands-section .brand-label {
-            font-size: 0.75rem;
-            padding: 0.35rem 0.9rem;
-          }
-          
-          .brands-section .nav-button {
-            display: none;
-          }
-          
-          .brands-section .brands-pagination {
-            margin-top: 2.5rem;
-            gap: 1rem;
-          }
-          
-          .brands-section .pagination-dot {
-            width: 12px;
-            height: 12px;
-          }
-          
-          .brands-section .pagination-dot-active {
-            width: 14px;
-            height: 14px;
-          }
-          
-          .brands-section .testimonial-tooltip {
-            min-width: 300px;
-            max-width: calc(100vw - 2rem);
-            padding: 1.25rem;
-          }
-          
-          .brands-section .tooltip-avatar {
-            width: 55px;
-            height: 55px;
-          }
-          
-          .brands-section .tooltip-fullname {
-            font-size: 0.95rem;
-          }
-          
-          .brands-section .tooltip-jobtitle {
-            font-size: 0.8rem;
-          }
-          
-          .brands-section .tooltip-quote {
-            font-size: 0.9rem;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .brands-section .brands-title {
-            font-size: 1rem;
-          }
-          
-          .brands-section .brands-container {
-            min-height: 350px;
-          }
-          
-          .brands-section .brands-grid {
-            gap: 2.5rem;
-            padding: 0 1.5rem;
-          }
-          
-          .brands-section .brand-logo {
-            height: 70px;
-            max-width: 180px;
-          }
-          
-          .brands-section .brand-label {
-            font-size: 0.7rem;
-            padding: 0.3rem 0.8rem;
-          }
-          
-          .brands-section .testimonial-tooltip {
-            min-width: 280px;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          .brands-section {
-            padding: 2rem 0;
-          }
-          
-          .brands-section .brands-title {
-            font-size: 0.9rem;
-            padding: 0 0.5rem;
-          }
-          
-          .brands-section .brands-container {
-            min-height: 300px;
-          }
-          
-          .brands-section .brands-grid {
-            gap: 2rem;
-            padding: 0 1rem;
+            padding: 0.5rem 0;
           }
           
           .brands-section .brand-logo {
             height: 60px;
-            max-width: 160px;
+            max-width: 140px;
           }
-          
-          .brands-section .brands-pagination {
-            gap: 0.8rem;
-            margin-top: 2rem;
-          }
-          
-          .brands-section .pagination-dot {
-            width: 10px;
-            height: 10px;
-          }
-          
-          .brands-section .pagination-dot-active {
-            width: 12px;
-            height: 12px;
-          }
-        }
-      `}</style>
-      <div className="container">
-        <div className="brands-header">
-          <h2 className="brands-title">CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
-        </div>
-
-        {/* Brand Display Area */}
-        <div 
-          className="brands-container"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          {/* Navigation Arrow - Left (Desktop) */}
-          {!isMobile && totalPages > 1 && (
-            <button
-              className="nav-button nav-button-left"
-              onClick={goToPrevPage}
-              aria-label="Previous brands"
-            >
-              ‹
-            </button>
-          )}
-
-          {/* Brands Grid */}
-          <div className="brands-grid">
-            {currentBrands.map((brandItem, index) => {
-              const testimonial = getTestimonial(brandItem);
-              const hasLabel = !!testimonial;
-
-              return (
-                <div
-                  key={`${brandItem.segmentName}-${brandItem.brand.brandName}-${index}`}
-                  className="brand-container"
-                  onMouseEnter={(e) => handleMouseEnter(brandItem, e)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <div className="brand-logo-wrapper">
-                    <img
-                      src={getLogoUrl(brandItem)}
-                      alt={brandItem.brand.brandName}
-                      className="brand-logo"
-                      onError={() => handleImageError(`logo-${brandItem.segmentName}-${brandItem.brand.brandName}`)}
-                    />
-                    {hasLabel && testimonial && (
-                      <div className="brand-label">
-                        {testimonial.labelName}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Navigation Arrow - Right (Desktop) */}
-          {!isMobile && totalPages > 1 && (
-            <button
-              className="nav-button nav-button-right"
-              onClick={goToNextPage}
-              aria-label="Next brands"
-            >
-              ›
-            </button>
-          )}
-        </div>
-
-        {/* Pagination Dots */}
-        {totalPages > 1 && (
-          <div className="brands-pagination">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                className={clsx('pagination-dot', index === currentPage && 'pagination-dot-active')}
-                onClick={() => goToPage(index)}
-                aria-label={`Go to page ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Testimonial Tooltip */}
-        {hoveredBrand && hoveredBrandData && (() => {
-          const testimonial = getTestimonial(hoveredBrandData);
-          if (!testimonial) return null;
-
-          return (
-            <div
-              className="testimonial-tooltip"
-              style={{
-                left: `${tooltipPosition.x}px`,
-                top: `${tooltipPosition.y}px`
-              }}
-            >
-              <div className="tooltip-header">
-                <img
-                  src={getAvatarUrl(testimonial, hoveredBrandData.segmentName)}
-                  alt={testimonial.fullName}
-                  className="tooltip-avatar"
-                  onError={() => handleImageError(`avatar-${hoveredBrandData.segmentName}-${testimonial.brandName}`)}
-                />
-                <div className="tooltip-info">
-                  <div className="tooltip-representative">
-                    {testimonial.representative}
-                  </div>
-                  <div className="tooltip-fullname">{testimonial.fullName}</div>
-                  <div className="tooltip-jobtitle">{testimonial.jobTitle}</div>
-                </div>
-              </div>
-              <div className="tooltip-quote">"{testimonial.quote}"</div>
-            </div>
-          );
-        })()}
-      </div>
-    </section>
-  );
-}
