@@ -1,6 +1,6 @@
 {
   "segmentName": "filming",
-  "segmentPath": "static/brand/filming"
+  "segmentPath": "static/brand/filming",
   "brands": [
     {
       "brandName": "Netflix",
@@ -49,7 +49,7 @@
         "avatarName": "Sony-avatar.png",
         "fullName": "Kenichiro Yoshida",
         "jobTitle": "Chairman, President and CEO",
-        "quote": "Sustainability is a fundamental pillar of our corporate philosophy and a source of innovation... We strive to celebrate individual differences and enrich hearts and minds so that people can share Kando with one another.",
+        "quote": "Sustainability is a fundamental pillar of our corporate philosophy and a source of innovation. We strive to celebrate individual differences and enrich hearts and minds so that people can share Kando with one another.",
         "resource": "https://www.sony.com/en/SonyInfo/csr/library/reports/SustainabilityReport2024_E.pdf"
       }
     },

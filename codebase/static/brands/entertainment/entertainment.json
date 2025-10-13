@@ -1,134 +1,175 @@
 {
   "segmentName": "entertainment",
+  "segmentPath": "static/brand/entertainment",
   "brands": [
     {
-      "brandName": "live-nation",
+      "brandName": "LiveNation",
+      "brandSite": "livenationentertainment.com",
       "logoUrl": "https://logo.clearbit.com/livenation.com",
+      "logoName": "LiveNation-logo.png",
       "testimonial": {
-        "brandName": "live-nation",
-        "labelName": "Case study",
-        "representative": "Live Nation Entertainment",
-        "avatar": "https://ui-avatars.com/api/?name=Michael+Rapino&size=200",
+        "brandName": "LiveNation",
+        "labelName": "potential",
+        "representative": "Live Nation Entertainment, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Michael+Rapino&size=200&background=009cde&color=ffffff",
+        "avatarName": "LiveNation-avatar.png",
         "fullName": "Michael Rapino",
         "jobTitle": "President & CEO",
-        "quote": "Live events generate massive carbon emissions from travel, energy, and waste. We're committed to reducing our environmental impact by 50% per show by 2030."
+        "quote": "We are committed to creating positive change in the live entertainment industry through environmental sustainability, social responsibility, and supporting the communities where we operate.",
+        "resource": "https://www.livenationentertainment.com/about-us/corporate-social-responsibility/"
       }
     },
     {
-      "brandName": "aeg",
-      "logoUrl": "https://logo.clearbit.com/aegworldwide.com",
+      "brandName": "Nintendo",
+      "brandSite": "nintendo.com",
+      "logoUrl": "https://logo.clearbit.com/nintendo.com",
+      "logoName": "Nintendo-logo.png",
       "testimonial": {
-        "brandName": "aeg",
-        "labelName": "Case study",
-        "representative": "AEG",
-        "avatar": "https://ui-avatars.com/api/?name=Dan+Beckerman&size=200",
-        "fullName": "Dan Beckerman",
+        "brandName": "Nintendo",
+        "labelName": "potential",
+        "representative": "Nintendo Co., Ltd. (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Shuntaro+Furukawa&size=200&background=e60012&color=ffffff",
+        "avatarName": "Nintendo-avatar.png",
+        "fullName": "Shuntaro Furukawa",
+        "jobTitle": "President",
+        "quote": "Nintendo aims to contribute to society by creating smiles through entertainment. We are committed to reducing our environmental footprint and promoting sustainable practices throughout our operations.",
+        "resource": "https://www.nintendo.co.jp/csr/en/index.html"
+      }
+    },
+    {
+      "brandName": "EA",
+      "brandSite": "ea.com",
+      "logoUrl": "https://logo.clearbit.com/ea.com",
+      "logoName": "EA-logo.png",
+      "testimonial": {
+        "brandName": "EA",
+        "labelName": "potential",
+        "representative": "Electronic Arts Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Andrew+Wilson&size=200&background=000000&color=ffffff",
+        "avatarName": "EA-avatar.png",
+        "fullName": "Andrew Wilson",
+        "jobTitle": "CEO",
+        "quote": "We believe in the power of play to inspire, connect and bring people together. Our positive play initiatives focus on environmental sustainability, social impact, and creating inclusive gaming experiences.",
+        "resource": "https://www.ea.com/commitments/positive-play"
+      }
+    },
+    {
+      "brandName": "Roblox",
+      "brandSite": "roblox.com",
+      "logoUrl": "https://logo.clearbit.com/roblox.com",
+      "logoName": "Roblox-logo.png",
+      "testimonial": {
+        "brandName": "Roblox",
+        "labelName": "potential",
+        "representative": "Roblox Corporation",
+        "avatar": "https://ui-avatars.com/api/?name=David+Baszucki&size=200&background=000000&color=ffffff",
+        "avatarName": "Roblox-avatar.png",
+        "fullName": "David Baszucki",
+        "jobTitle": "Founder & CEO",
+        "quote": "Our mission is to connect billions of people through shared experiences. We are committed to digital civility, safety, and building a platform that brings people together in positive ways.",
+        "resource": "https://corp.roblox.com/safety-civility-resources/"
+      }
+    },
+    {
+      "brandName": "Activision",
+      "brandSite": "activisionblizzard.com",
+      "logoUrl": "https://logo.clearbit.com/activision.com",
+      "logoName": "Activision-logo.png",
+      "testimonial": {
+        "brandName": "Activision",
+        "labelName": "potential",
+        "representative": "Activision Blizzard (Microsoft Gaming)",
+        "avatar": "https://ui-avatars.com/api/?name=Bobby+Kotick&size=200&background=000000&color=ffffff",
+        "avatarName": "Activision-avatar.png",
+        "fullName": "Bobby Kotick",
+        "jobTitle": "CEO",
+        "quote": "We are committed to creating a safe, fair, and inclusive environment for all players and employees. Our focus is on environmental sustainability and positive social impact through gaming.",
+        "resource": "https://www.activisionblizzard.com/esg"
+      }
+    },
+    {
+      "brandName": "Ubisoft",
+      "brandSite": "ubisoft.com",
+      "logoUrl": "https://logo.clearbit.com/ubisoft.com",
+      "logoName": "Ubisoft-logo.png",
+      "testimonial": {
+        "brandName": "Ubisoft",
+        "labelName": "potential",
+        "representative": "Ubisoft Entertainment SA",
+        "avatar": "https://ui-avatars.com/api/?name=Yves+Guillemot&size=200&background=000000&color=ffffff",
+        "avatarName": "Ubisoft-avatar.png",
+        "fullName": "Yves Guillemot",
+        "jobTitle": "CEO & Co-Founder",
+        "quote": "Our ambition is to be a leader in environmental and social responsibility in the gaming industry. We are committed to carbon neutrality and creating positive impact through our games.",
+        "resource": "https://www.ubisoft.com/en-us/company/corporate-social-responsibility"
+      }
+    },
+    {
+      "brandName": "Bandai",
+      "brandSite": "bandainamco-mirai.com",
+      "logoUrl": "https://logo.clearbit.com/bandainamco.co.jp",
+      "logoName": "Bandai-logo.png",
+      "testimonial": {
+        "brandName": "Bandai",
+        "labelName": "potential",
+        "representative": "Bandai Namco Holdings Inc. (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Masaru+Kawaguchi&size=200&background=e60012&color=ffffff",
+        "avatarName": "Bandai-avatar.png",
+        "fullName": "Masaru Kawaguchi",
         "jobTitle": "President & CEO",
-        "quote": "Venues and events are energy-intensive. We're investing in renewable energy, sustainable operations, and helping artists reduce their touring carbon footprint."
+        "quote": "We aim to deliver fun and inspiration to people around the world while contributing to a sustainable society. Our ESG initiatives focus on environmental protection and social contribution.",
+        "resource": "https://www.bandainamco-mirai.com/en/sustainability/"
       }
     },
     {
-      "brandName": "glastonbury",
-      "logoUrl": "https://logo.clearbit.com/glastonburyfestivals.co.uk",
+      "brandName": "Hasbro",
+      "brandSite": "hasbro.com",
+      "logoUrl": "https://logo.clearbit.com/hasbro.com",
+      "logoName": "Hasbro-logo.png",
       "testimonial": {
-        "brandName": "glastonbury",
-        "labelName": "Case study",
-        "representative": "Glastonbury Festival",
-        "avatar": "https://ui-avatars.com/api/?name=Emily+Eavis&size=200",
-        "fullName": "Emily Eavis",
-        "jobTitle": "Co-organizer",
-        "quote": "A festival of our scale has enormous environmental responsibility. We've banned plastic bottles and are working toward becoming carbon neutral through innovation and behavior change."
-      }
-    },
-    {
-      "brandName": "coachella",
-      "logoUrl": "https://logo.clearbit.com/coachella.com",
-      "testimonial": {
-        "brandName": "coachella",
-        "labelName": "Case study",
-        "representative": "Coachella",
-        "avatar": "https://ui-avatars.com/api/?name=Paul+Tollett&size=200",
-        "fullName": "Paul Tollett",
-        "jobTitle": "President, Goldenvoice",
-        "quote": "Large festivals create significant waste and emissions. We're implementing comprehensive sustainability programs including renewable energy and zero-waste initiatives."
-      }
-    },
-    {
-      "brandName": "cirque-du-soleil",
-      "logoUrl": "https://logo.clearbit.com/cirquedusoleil.com",
-      "testimonial": {
-        "brandName": "cirque-du-soleil",
-        "labelName": "Case study",
-        "representative": "Cirque du Soleil",
-        "avatar": "https://ui-avatars.com/api/?name=Daniel+Lamarre&size=200",
-        "fullName": "Stéphane Lefebvre",
+        "brandName": "Hasbro",
+        "labelName": "potential",
+        "representative": "Hasbro, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Chris+Cocks&size=200&background=0063b2&color=ffffff",
+        "avatarName": "Hasbro-avatar.png",
+        "fullName": "Chris Cocks",
         "jobTitle": "CEO",
-        "quote": "Touring shows have complex carbon footprints. We're redesigning our logistics, using sustainable materials, and measuring every aspect of our environmental impact."
+        "quote": "Our purpose is to make the world a better place for all children and families. We are committed to sustainable play through responsible sourcing, reducing plastic, and supporting communities.",
+        "resource": "https://corporate.hasbro.com/en-us/social-responsibility"
       }
     },
     {
-      "brandName": "madison-square-garden",
-      "logoUrl": "https://logo.clearbit.com/msg.com",
+      "brandName": "Mattel",
+      "brandSite": "mattel.com",
+      "logoUrl": "https://logo.clearbit.com/mattel.com",
+      "logoName": "Mattel-logo.png",
       "testimonial": {
-        "brandName": "madison-square-garden",
-        "labelName": "Case study",
-        "representative": "Madison Square Garden",
-        "avatar": "https://ui-avatars.com/api/?name=James+Dolan&size=200",
-        "fullName": "James L. Dolan",
-        "jobTitle": "Executive Chairman",
-        "quote": "Iconic venues must lead on sustainability. We're implementing energy-efficient systems and sustainable practices to reduce our carbon footprint significantly."
+        "brandName": "Mattel",
+        "labelName": "potential",
+        "representative": "Mattel, Inc.",
+        "avatar": "https://ui-avatars.com/api/?name=Ynon+Kreiz&size=200&background=e2231a&color=ffffff",
+        "avatarName": "Mattel-avatar.png",
+        "fullName": "Ynon Kreiz",
+        "jobTitle": "Chairman & CEO",
+        "quote": "We are committed to creating a positive impact for children, families, and the planet. Our sustainability goals focus on achieving 100% recycled, recyclable, or bio-based plastic materials.",
+        "resource": "https://corporate.mattel.com/en-us/citizenship"
       }
     },
     {
-      "brandName": "merlin",
-      "logoUrl": "https://logo.clearbit.com/merlinentertainments.biz",
+      "brandName": "Square",
+      "brandSite": "square-enix.com",
+      "logoUrl": "https://logo.clearbit.com/square-enix.com",
+      "logoName": "Square-logo.png",
       "testimonial": {
-        "brandName": "merlin",
-        "labelName": "Case study",
-        "representative": "Merlin Entertainments",
-        "avatar": "https://ui-avatars.com/api/?name=Scott+O'Neil&size=200",
-        "fullName": "Scott O'Neil",
-        "jobTitle": "CEO",
-        "quote": "Theme parks consume enormous amounts of energy. We're transitioning to renewable energy and implementing circular economy principles across all attractions."
-      }
-    },
-    {
-      "brandName": "broadway",
-      "logoUrl": "https://logo.clearbit.com/broadway.org",
-      "testimonial": {
-        "brandName": "broadway",
-        "labelName": "Case study",
-        "representative": "The Broadway League",
-        "avatar": "https://ui-avatars.com/api/?name=Charlotte+St+Martin&size=200",
-        "fullName": "Charlotte St. Martin",
-        "jobTitle": "President",
-        "quote": "Broadway is going green. Our theaters are implementing energy-efficient lighting, sustainable materials, and comprehensive recycling programs to cut emissions."
-      }
-    },
-    {
-      "brandName": "caesars",
-      "logoUrl": "https://logo.clearbit.com/caesars.com",
-      "testimonial": {
-        "brandName": "caesars",
-        "labelName": "Case study",
-        "representative": "Caesars Entertainment",
-        "avatar": "https://ui-avatars.com/api/?name=Tom+Reeg&size=200",
-        "fullName": "Tom Reeg",
-        "jobTitle": "CEO",
-        "quote": "The hospitality and entertainment industry must address its climate impact. We're investing billions in sustainable operations and renewable energy across our properties."
-      }
-    },
-    {
-      "brandName": "wwe",
-      "logoUrl": "https://logo.clearbit.com/wwe.com",
-      "testimonial": {
-        "brandName": "wwe",
-        "labelName": "Case study",
-        "representative": "WWE",
-        "avatar": "https://ui-avatars.com/api/?name=Nick+Khan&size=200",
-        "fullName": "Nick Khan",
-        "jobTitle": "President",
-        "quote": "Live entertainment touring has a significant carbon footprint. We're measuring our impact and implementing strategies to reduce emissions across all our events."
+        "brandName": "Square",
+        "labelName": "potential",
+        "representative": "Square Enix Holdings Co., Ltd. (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Takashi+Kiryu&size=200&background=000000&color=ffffff",
+        "avatarName": "Square-avatar.png",
+        "fullName": "Takashi Kiryu",
+        "jobTitle": "President & Representative Director",
+        "quote": "We strive to create content that inspires happiness and fulfillment. Our commitment to sustainability includes reducing environmental impact and contributing to society through entertainment.",
+        "resource": "https://www.hd.square-enix.com/eng/csr/"
       }
     }
   ]

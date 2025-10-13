@@ -1,134 +1,175 @@
 {
   "segmentName": "music",
+  "segmentPath": "static/brand/music",
   "brands": [
     {
-      "brandName": "universal-music",
-      "logoUrl": "https://logo.clearbit.com/universalmusic.com",
+      "brandName": "Spotify",
+      "brandSite": "spotify.com",
+      "logoUrl": "https://logo.clearbit.com/spotify.com",
+      "logoName": "Spotify-logo.png",
       "testimonial": {
-        "brandName": "universal-music",
-        "labelName": "Case study",
+        "brandName": "Spotify",
+        "labelName": "potential",
+        "representative": "Spotify Technology S.A.",
+        "avatar": "https://ui-avatars.com/api/?name=Daniel+Ek&size=200&background=1DB954&color=ffffff",
+        "avatarName": "Spotify-avatar.png",
+        "fullName": "Daniel Ek",
+        "jobTitle": "CEO & Co-Founder",
+        "quote": "We believe in the power of audio to bring people together and create positive change. Our sustainability efforts focus on reducing carbon emissions and supporting the creative community.",
+        "resource": "https://investors.spotify.com/esg/default.aspx"
+      }
+    },
+    {
+      "brandName": "Universal",
+      "brandSite": "universalmusic.com",
+      "logoUrl": "https://logo.clearbit.com/universalmusic.com",
+      "logoName": "Universal-logo.png",
+      "testimonial": {
+        "brandName": "Universal",
+        "labelName": "potential",
         "representative": "Universal Music Group",
-        "avatar": "https://ui-avatars.com/api/?name=Lucian+Grainge&size=200",
+        "avatar": "https://ui-avatars.com/api/?name=Lucian+Grainge&size=200&background=000000&color=ffffff",
+        "avatarName": "Universal-avatar.png",
         "fullName": "Lucian Grainge",
         "jobTitle": "Chairman & CEO",
-        "quote": "The music industry must lead by example on climate action. We're working with artists to measure and reduce touring emissions and transition to sustainable operations."
+        "quote": "We are committed to creating a more inclusive, equitable, and sustainable music ecosystem. Our task force on diversity and inclusion drives meaningful change across our company and industry.",
+        "resource": "https://www.universalmusic.com/corporate-social-responsibility/"
       }
     },
     {
-      "brandName": "sony-music",
+      "brandName": "Sony Music",
+      "brandSite": "sonymusic.com",
       "logoUrl": "https://logo.clearbit.com/sonymusic.com",
+      "logoName": "Sony Music-logo.png",
       "testimonial": {
-        "brandName": "sony-music",
-        "labelName": "Case study",
+        "brandName": "Sony Music",
+        "labelName": "potential",
         "representative": "Sony Music Entertainment",
-        "avatar": "https://ui-avatars.com/api/?name=Rob+Stringer&size=200",
+        "avatar": "https://ui-avatars.com/api/?name=Rob+Stringer&size=200&background=000000&color=ffffff",
+        "avatarName": "Sony Music-avatar.png",
         "fullName": "Rob Stringer",
         "jobTitle": "Chairman",
-        "quote": "Music production and touring generate significant carbon emissions. We're committed to achieving carbon neutrality and helping artists reduce their environmental impact."
+        "quote": "We are dedicated to fostering an inclusive culture and sustainable practices. Our commitment extends to supporting artists while reducing our environmental footprint globally.",
+        "resource": "https://www.sonymusic.com/social-justice/"
       }
     },
     {
-      "brandName": "warner-music",
-      "logoUrl": "https://logo.clearbit.com/warnermusic.com",
+      "brandName": "Warner Music",
+      "brandSite": "wmg.com",
+      "logoUrl": "https://logo.clearbit.com/wmg.com",
+      "logoName": "Warner Music-logo.png",
       "testimonial": {
-        "brandName": "warner-music",
-        "labelName": "Case study",
-        "representative": "Warner Music Group",
-        "avatar": "https://ui-avatars.com/api/?name=Robert+Kyncl&size=200",
+        "brandName": "Warner Music",
+        "labelName": "potential",
+        "representative": "Warner Music Group Corp.",
+        "avatar": "https://ui-avatars.com/api/?name=Robert+Kyncl&size=200&background=000000&color=ffffff",
+        "avatarName": "Warner Music-avatar.png",
         "fullName": "Robert Kyncl",
         "jobTitle": "CEO",
-        "quote": "Climate change affects everyone, and the music community has a powerful voice. We're using that voice to drive real change in how the industry operates."
+        "quote": "Music has the power to unite people and drive positive change. We're committed to environmental sustainability and creating opportunities for diverse voices in music.",
+        "resource": "https://www.wmg.com/social-responsibility"
       }
     },
     {
-      "brandName": "spotify",
-      "logoUrl": "https://logo.clearbit.com/spotify.com",
+      "brandName": "Apple Music",
+      "brandSite": "apple.com",
+      "logoUrl": "https://logo.clearbit.com/apple.com",
+      "logoName": "Apple Music-logo.png",
       "testimonial": {
-        "brandName": "spotify",
-        "labelName": "Case study",
-        "representative": "Spotify",
-        "avatar": "https://ui-avatars.com/api/?name=Daniel+Ek&size=200",
-        "fullName": "Daniel Ek",
-        "jobTitle": "CEO & Founder",
-        "quote": "Digital streaming has a carbon footprint through data centers and devices. We're transitioning to 100% renewable energy and helping the industry become more sustainable."
-      }
-    },
-    {
-      "brandName": "coldplay",
-      "logoUrl": "https://logo.clearbit.com/coldplay.com",
-      "testimonial": {
-        "brandName": "coldplay",
-        "labelName": "Case study",
-        "representative": "Coldplay",
-        "avatar": "https://ui-avatars.com/api/?name=Chris+Martin&size=200",
-        "fullName": "Chris Martin",
-        "jobTitle": "Lead Singer",
-        "quote": "Our Music of the Spheres tour cuts emissions by 50% compared to our previous tour. Every artist can and should measure their impact and find ways to reduce it."
-      }
-    },
-    {
-      "brandName": "massive-attack",
-      "logoUrl": "https://logo.clearbit.com/massiveattack.co.uk",
-      "testimonial": {
-        "brandName": "massive-attack",
-        "labelName": "Case study",
-        "representative": "Massive Attack",
-        "avatar": "https://ui-avatars.com/api/?name=Robert+Del+Naja&size=200",
-        "fullName": "Robert Del Naja",
-        "jobTitle": "Artist",
-        "quote": "We commissioned the Tyndall Centre to study music touring emissions. The findings are stark - we need systematic change across the entire live music industry."
-      }
-    },
-    {
-      "brandName": "billie-eilish",
-      "logoUrl": "https://ui-avatars.com/api/?name=Billie+Eilish&size=400&background=000&color=fff",
-      "testimonial": {
-        "brandName": "billie-eilish",
-        "labelName": "Case study",
-        "representative": "Billie Eilish",
-        "avatar": "https://ui-avatars.com/api/?name=Billie+Eilish&size=200",
-        "fullName": "Billie Eilish",
-        "jobTitle": "Artist",
-        "quote": "Climate change is an emergency. My tours eliminate single-use plastics, offer plant-based food options, and we're working to make every show as sustainable as possible."
-      }
-    },
-    {
-      "brandName": "the-1975",
-      "logoUrl": "https://ui-avatars.com/api/?name=The+1975&size=400&background=000&color=fff",
-      "testimonial": {
-        "brandName": "the-1975",
-        "labelName": "Case study",
-        "representative": "The 1975",
-        "avatar": "https://ui-avatars.com/api/?name=Matty+Healy&size=200",
-        "fullName": "Matty Healy",
-        "jobTitle": "Lead Singer",
-        "quote": "We're planting trees for every ticket sold and working with experts to reduce our touring carbon footprint. Artists have to be part of the climate solution."
-      }
-    },
-    {
-      "brandName": "radiohead",
-      "logoUrl": "https://ui-avatars.com/api/?name=Radiohead&size=400&background=000&color=fff",
-      "testimonial": {
-        "brandName": "radiohead",
-        "labelName": "Case study",
-        "representative": "Radiohead",
-        "avatar": "https://ui-avatars.com/api/?name=Thom+Yorke&size=200",
-        "fullName": "Thom Yorke",
-        "jobTitle": "Lead Singer",
-        "quote": "We've been carbon accounting our tours for years. The music industry needs to face the reality of its environmental impact and take concrete action."
-      }
-    },
-    {
-      "brandName": "bmg",
-      "logoUrl": "https://logo.clearbit.com/bmg.com",
-      "testimonial": {
-        "brandName": "bmg",
-        "labelName": "Case study",
-        "representative": "BMG Rights Management",
-        "avatar": "https://ui-avatars.com/api/?name=Hartwig+Masuch&size=200",
-        "fullName": "Hartwig Masuch",
+        "brandName": "Apple Music",
+        "labelName": "potential",
+        "representative": "Apple Inc. (Apple Music)",
+        "avatar": "https://ui-avatars.com/api/?name=Tim+Cook&size=200&background=000000&color=ffffff",
+        "avatarName": "Apple Music-avatar.png",
+        "fullName": "Tim Cook",
         "jobTitle": "CEO",
-        "quote": "As a music company, we have a responsibility to support artists in reducing their environmental impact and to make our own operations sustainable."
+        "quote": "We are committed to leaving the world better than we found it. Our environmental initiatives include carbon neutrality, renewable energy, and responsible material sourcing across all products.",
+        "resource": "https://www.apple.com/environment/"
+      }
+    },
+    {
+      "brandName": "Amazon Music",
+      "brandSite": "music.amazon.com",
+      "logoUrl": "https://logo.clearbit.com/amazon.com",
+      "logoName": "Amazon Music-logo.png",
+      "testimonial": {
+        "brandName": "Amazon Music",
+        "labelName": "potential",
+        "representative": "Amazon.com, Inc. (Amazon Music)",
+        "avatar": "https://ui-avatars.com/api/?name=Andy+Jassy&size=200&background=ff9900&color=000000",
+        "avatarName": "Amazon Music-avatar.png",
+        "fullName": "Andy Jassy",
+        "jobTitle": "President & CEO",
+        "quote": "We are committed to building a sustainable business for our customers, employees, and communities. The Climate Pledge is our commitment to reach net-zero carbon by 2040.",
+        "resource": "https://sustainability.aboutamazon.com/"
+      }
+    },
+    {
+      "brandName": "YouTube Music",
+      "brandSite": "music.youtube.com",
+      "logoUrl": "https://logo.clearbit.com/youtube.com",
+      "logoName": "YouTube Music-logo.png",
+      "testimonial": {
+        "brandName": "YouTube Music",
+        "labelName": "potential",
+        "representative": "Google LLC (YouTube Music)",
+        "avatar": "https://ui-avatars.com/api/?name=Sundar+Pichai&size=200&background=FF0000&color=ffffff",
+        "avatarName": "YouTube Music-avatar.png",
+        "fullName": "Sundar Pichai",
+        "jobTitle": "CEO",
+        "quote": "We aim to operate the cleanest cloud in the industry and be carbon-free by 2030. Sustainability and responsible innovation are central to everything we build.",
+        "resource": "https://sustainability.google/"
+      }
+    },
+    {
+      "brandName": "Tidal",
+      "brandSite": "tidal.com",
+      "logoUrl": "https://logo.clearbit.com/tidal.com",
+      "logoName": "Tidal-logo.png",
+      "testimonial": {
+        "brandName": "Tidal",
+        "labelName": "potential",
+        "representative": "TIDAL Music AS (Block, Inc.)",
+        "avatar": "https://ui-avatars.com/api/?name=Jack+Dorsey&size=200&background=000000&color=ffffff",
+        "avatarName": "Tidal-avatar.png",
+        "fullName": "Jack Dorsey",
+        "jobTitle": "Co-Founder & Former CEO",
+        "quote": "We believe in fair compensation for artists and sustainable practices in the music industry. Our platform prioritizes artist empowerment and environmental responsibility.",
+        "resource": "https://tidal.com/about"
+      }
+    },
+    {
+      "brandName": "Kakao",
+      "brandSite": "kakaocorp.com",
+      "logoUrl": "https://logo.clearbit.com/kakaocorp.com",
+      "logoName": "Kakao-logo.png",
+      "testimonial": {
+        "brandName": "Kakao",
+        "labelName": "potential",
+        "representative": "Kakao Corp. (Asia: South Korea)",
+        "avatar": "https://ui-avatars.com/api/?name=Hong+Eun+Taek&size=200&background=FEE500&color=000000",
+        "avatarName": "Kakao-avatar.png",
+        "fullName": "Hong Eun Taek",
+        "jobTitle": "CEO",
+        "quote": "We strive to create a better world through technology and content. Our ESG management focuses on environmental protection, social value creation, and transparent governance.",
+        "resource": "https://www.kakaocorp.com/page/sustainability"
+      }
+    },
+    {
+      "brandName": "Avex",
+      "brandSite": "avex.com",
+      "logoUrl": "https://logo.clearbit.com/avex.com",
+      "logoName": "Avex-logo.png",
+      "testimonial": {
+        "brandName": "Avex",
+        "labelName": "potential",
+        "representative": "Avex Inc. (Asia: Japan)",
+        "avatar": "https://ui-avatars.com/api/?name=Katsumi+Kuroiwa&size=200&background=e60012&color=ffffff",
+        "avatarName": "Avex-avatar.png",
+        "fullName": "Katsumi Kuroiwa",
+        "jobTitle": "Representative Director & CEO",
+        "quote": "We aim to deliver inspiring entertainment while contributing to a sustainable society. Our commitment includes supporting artists and reducing environmental impact in music production.",
+        "resource": "https://avex.com/en/sustainability/"
       }
     }
   ]
