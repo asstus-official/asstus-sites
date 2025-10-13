@@ -85,7 +85,7 @@
 .label {
   position: absolute;
   bottom: 5px;
-  left: 50%;
+  left: 0;
   transform: translateX(-50%);
   background-color: #FF6D00;
   color: white;
@@ -101,7 +101,7 @@
 .segmentLabel {
   position: absolute;
   top: 5px;
-  right: 50%;
+  right: 0;
   transform: translateX(50%);
   background-color: #FF8A33;
   color: white;

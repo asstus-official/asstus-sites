@@ -327,22 +327,23 @@ export default function FourthSection() {
                   }}
                 >
                   <div className={styles.brandLogoWrapper}>
-                    <img
-                      src={getLogoUrl(brandItem)}
-                      alt={brandItem.brand.brandName}
-                      className={styles.brandLogo}
-                      onError={() => handleImageError(`logo-${brandItem.segmentName}-${brandItem.brand.brandName}`)}
-                    />
-                    {testimonial && (
-                      <div className={styles.label}>
-                        {testimonial.labelName}
+                    <div style={{ position: 'relative', display: 'inline-block' }}>
+                      <img
+                        src={getLogoUrl(brandItem)}
+                        alt={brandItem.brand.brandName}
+                        className={styles.brandLogo}
+                        onError={() => handleImageError(`logo-${brandItem.segmentName}-${brandItem.brand.brandName}`)}
+                      />
+                      {testimonial && (
+                        <div className={styles.label}>
+                          {testimonial.labelName}
+                        </div>
+                      )}
+                      <div className={styles.segmentLabel}>
+                        {brandItem.segmentName}
                       </div>
-                    )}
-                    <div className={styles.segmentLabel}>
-                      {brandItem.segmentName}
                     </div>
                   </div>
-                </div>
               );
             })}
           </div>
