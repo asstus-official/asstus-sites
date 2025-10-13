@@ -11,6 +11,7 @@ interface Testimonial {
   fullName: string;
   jobTitle: string;
   quote: string;
+  resource: string;
 }
 
 // Brand item structure
@@ -34,9 +35,11 @@ export default function FourthSection() {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(0);
-  const [displayedBrands, setDisplayedBrands] = useState<{ segmentName: string; brand: BrandItem }[]>([]);
+  const [allBrands, setAllBrands] = useState<{ segmentName: string; brand: BrandItem }[]>([]);
+  const [displayedPages, setDisplayedPages] = useState<{ segmentName: string; brand: BrandItem }[][]>([]);
   const [isMobile, setIsMobile] = useState(false);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [isLoading, setIsLoading] = useState(true);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
@@ -59,14 +62,14 @@ export default function FourthSection() {
 
   // Load all brands from all segments
   const loadAllBrands = async () => {
-    const allBrands: { segmentName: string; brand: BrandItem }[] = [];
+    const loadedBrands: { segmentName: string; brand: BrandItem }[] = [];
     
     for (const segmentFolder of SEGMENT_FOLDERS) {
       const segmentData = await loadSegmentData(segmentFolder);
       
       if (segmentData && segmentData.brands) {
         segmentData.brands.forEach(brand => {
-          allBrands.push({
+          loadedBrands.push({
             segmentName: segmentFolder,
             brand: brand
           });
@@ -74,63 +77,94 @@ export default function FourthSection() {
       }
     }
     
-    return allBrands;
+    return loadedBrands;
   };
 
-  // Random selection function
-  const selectRandomBrands = (allBrands: { segmentName: string; brand: BrandItem }[]) => {
-    const brandsBySegment: Record<string, typeof allBrands> = {};
-    allBrands.forEach(item => {
-      if (!brandsBySegment[item.segmentName]) {
-        brandsBySegment[item.segmentName] = [];
-      }
-      brandsBySegment[item.segmentName].push(item);
-    });
+  // Shuffle array
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
-    const selected: typeof allBrands = [];
+  // Generate pages with random brands
+  const generatePages = (brands: { segmentName: string; brand: BrandItem }[], brandsPerPage: number) => {
+    if (brands.length === 0) return [];
     
-    Object.entries(brandsBySegment).forEach(([segment, brands]) => {
-      const count = Math.floor(Math.random() * 3) + 1;
-      const shuffled = [...brands].sort(() => Math.random() - 0.5);
-      const picked = shuffled.slice(0, Math.min(count, brands.length));
-      selected.push(...picked);
-    });
+    const shuffled = shuffleArray(brands);
+    const pages: typeof brands[] = [];
     
-    return selected.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < shuffled.length; i += brandsPerPage) {
+      const page = shuffled.slice(i, i + brandsPerPage);
+      // Only add pages that have exactly brandsPerPage items
+      if (page.length === brandsPerPage) {
+        pages.push(page);
+      }
+    }
+    
+    // If no complete pages, create one from the shuffled array
+    if (pages.length === 0 && shuffled.length >= brandsPerPage) {
+      pages.push(shuffled.slice(0, brandsPerPage));
+    }
+    
+    return pages;
   };
 
   useEffect(() => {
     const initBrands = async () => {
-      const allBrands = await loadAllBrands();
-      if (allBrands.length > 0) {
-        const randomBrands = selectRandomBrands(allBrands);
-        setDisplayedBrands(randomBrands);
-      }
+      setIsLoading(true);
+      const loadedBrands = await loadAllBrands();
+      setAllBrands(loadedBrands);
+      
+      const mobile = window.innerWidth <= 996;
+      const brandsPerPage = mobile ? 9 : 15;
+      const pages = generatePages(loadedBrands, brandsPerPage);
+      
+      setDisplayedPages(pages);
+      setCurrentPage(0);
+      setIsLoading(false);
     };
     
     initBrands();
     
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 996);
+      const mobile = window.innerWidth <= 996;
+      setIsMobile(mobile);
+      
+      // Regenerate pages when screen size changes
+      if (allBrands.length > 0) {
+        const brandsPerPage = mobile ? 9 : 15;
+        const pages = generatePages(allBrands, brandsPerPage);
+        setDisplayedPages(pages);
+        setCurrentPage(0);
+      }
     };
     
-    checkMobile();
     window.addEventListener('resize', checkMobile);
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const brandsPerPage = isMobile ? 9 : 15;
-  const totalPages = Math.ceil(displayedBrands.length / brandsPerPage);
-  const startIndex = currentPage * brandsPerPage;
-  const endIndex = startIndex + brandsPerPage;
-  const currentBrands = displayedBrands.slice(startIndex, endIndex);
+  // Regenerate pages when allBrands changes
+  useEffect(() => {
+    if (allBrands.length > 0) {
+      const brandsPerPage = isMobile ? 9 : 15;
+      const pages = generatePages(allBrands, brandsPerPage);
+      setDisplayedPages(pages);
+    }
+  }, [allBrands, isMobile]);
 
-  const getTestimonial = (brandItem: typeof displayedBrands[0]): Testimonial | undefined => {
+  const totalPages = displayedPages.length;
+  const currentBrands = displayedPages[currentPage] || [];
+
+  const getTestimonial = (brandItem: typeof allBrands[0]): Testimonial | undefined => {
     return brandItem.brand.testimonial;
   };
 
-  const getLogoUrl = (brandItem: typeof displayedBrands[0]): string => {
+  const getLogoUrl = (brandItem: typeof allBrands[0]): string => {
     const errorKey = `logo-${brandItem.segmentName}-${brandItem.brand.brandName}`;
     
     if (imageErrors[errorKey]) {
@@ -162,7 +196,7 @@ export default function FourthSection() {
     setImageErrors(prev => ({ ...prev, [errorKey]: true }));
   };
 
-  const handleMouseEnter = (brandItem: typeof displayedBrands[0], event: React.MouseEvent) => {
+  const handleMouseEnter = (brandItem: typeof allBrands[0], event: React.MouseEvent) => {
     const testimonial = getTestimonial(brandItem);
     if (testimonial) {
       const rect = event.currentTarget.getBoundingClientRect();
@@ -176,6 +210,13 @@ export default function FourthSection() {
 
   const handleMouseLeave = () => {
     setHoveredBrand(null);
+  };
+
+  const handleBrandClick = (brandItem: typeof allBrands[0]) => {
+    const testimonial = getTestimonial(brandItem);
+    if (testimonial && testimonial.resource) {
+      window.open(testimonial.resource, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const goToNextPage = () => {
@@ -210,14 +251,34 @@ export default function FourthSection() {
   };
 
   const hoveredBrandData = hoveredBrand 
-    ? displayedBrands.find(b => b.brand.brandName === hoveredBrand)
+    ? allBrands.find(b => b.brand.brandName === hoveredBrand)
     : null;
 
-  if (displayedBrands.length === 0) {
+  if (isLoading) {
     return (
       <section className={styles.brandsSection}>
         <div className="container">
-          <p>Loading brands...</p>
+          <div className={styles.header}>
+            <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+          </div>
+          <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+            <p>Loading brands...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (displayedPages.length === 0) {
+    return (
+      <section className={styles.brandsSection}>
+        <div className="container">
+          <div className={styles.header}>
+            <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+          </div>
+          <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+            <p>No brands available</p>
+          </div>
         </div>
       </section>
     );
@@ -256,6 +317,14 @@ export default function FourthSection() {
                   className={styles.brandContainer}
                   onMouseEnter={(e) => handleMouseEnter(brandItem, e)}
                   onMouseLeave={handleMouseLeave}
+                  onClick={() => handleBrandClick(brandItem)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleBrandClick(brandItem);
+                    }
+                  }}
                 >
                   <div className={styles.brandLogoWrapper}>
                     <img
