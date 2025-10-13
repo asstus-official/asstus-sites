@@ -344,6 +344,7 @@ export default function FourthSection() {
                       </div>
                     </div>
                   </div>
+                </div>
               );
             })}
           </div>
