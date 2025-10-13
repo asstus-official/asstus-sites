@@ -33,6 +33,7 @@ const DEFAULT_LOGO = '/brands/default-logo.svg';
 
 export default function FourthSection() {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
+  const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(0);
   const [allBrands, setAllBrands] = useState<{ segmentName: string; brand: BrandItem }[]>([]);
@@ -90,24 +91,29 @@ export default function FourthSection() {
     return shuffled;
   };
 
-  // Generate pages with random brands
+  // Generate pages dynamically based on total brands
   const generatePages = (brands: { segmentName: string; brand: BrandItem }[], brandsPerPage: number) => {
     if (brands.length === 0) return [];
     
     const shuffled = shuffleArray(brands);
     const pages: typeof brands[] = [];
     
-    for (let i = 0; i < shuffled.length; i += brandsPerPage) {
-      const page = shuffled.slice(i, i + brandsPerPage);
-      // Only add pages that have exactly brandsPerPage items
-      if (page.length === brandsPerPage) {
-        pages.push(page);
-      }
-    }
+    // Calculate number of complete pages
+    const totalPages = Math.ceil(shuffled.length / brandsPerPage);
     
-    // If no complete pages, create one from the shuffled array
-    if (pages.length === 0 && shuffled.length >= brandsPerPage) {
-      pages.push(shuffled.slice(0, brandsPerPage));
+    for (let i = 0; i < totalPages; i++) {
+      const startIndex = i * brandsPerPage;
+      const endIndex = Math.min(startIndex + brandsPerPage, shuffled.length);
+      const page = shuffled.slice(startIndex, endIndex);
+      
+      // Fill incomplete last page with items from the beginning if needed
+      if (page.length < brandsPerPage && shuffled.length >= brandsPerPage) {
+        const needed = brandsPerPage - page.length;
+        const fillers = shuffled.slice(0, needed);
+        page.push(...fillers);
+      }
+      
+      pages.push(page);
     }
     
     return pages;
@@ -120,6 +126,7 @@ export default function FourthSection() {
       setAllBrands(loadedBrands);
       
       const mobile = window.innerWidth <= 996;
+      setIsMobile(mobile);
       const brandsPerPage = mobile ? 9 : 15;
       const pages = generatePages(loadedBrands, brandsPerPage);
       
@@ -197,6 +204,8 @@ export default function FourthSection() {
   };
 
   const handleMouseEnter = (brandItem: typeof allBrands[0], event: React.MouseEvent) => {
+    if (isMobile) return;
+    
     const testimonial = getTestimonial(brandItem);
     if (testimonial) {
       const rect = event.currentTarget.getBoundingClientRect();
@@ -209,26 +218,42 @@ export default function FourthSection() {
   };
 
   const handleMouseLeave = () => {
-    setHoveredBrand(null);
+    if (!isMobile) {
+      setHoveredBrand(null);
+    }
   };
 
   const handleBrandClick = (brandItem: typeof allBrands[0]) => {
-    const testimonial = getTestimonial(brandItem);
-    if (testimonial && testimonial.resource) {
-      window.open(testimonial.resource, '_blank', 'noopener,noreferrer');
+    if (isMobile) {
+      const testimonial = getTestimonial(brandItem);
+      if (testimonial) {
+        setSelectedBrand(brandItem.brand.brandName);
+      }
     }
+  };
+
+  const closeModal = () => {
+    setSelectedBrand(null);
+  };
+
+  const handleMoreClick = (resource: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(resource, '_blank', 'noopener,noreferrer');
   };
 
   const goToNextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
+    setSelectedBrand(null);
   };
 
   const goToPrevPage = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+    setSelectedBrand(null);
   };
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
+    setSelectedBrand(null);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -243,10 +268,14 @@ export default function FourthSection() {
     const diff = touchStartX.current - touchEndX.current;
     const threshold = 50;
 
-    if (diff > threshold) {
-      goToNextPage();
-    } else if (diff < -threshold) {
-      goToPrevPage();
+    if (Math.abs(diff) > threshold) {
+      setSelectedBrand(null);
+      
+      if (diff > 0) {
+        goToNextPage();
+      } else {
+        goToPrevPage();
+      }
     }
   };
 
@@ -254,12 +283,16 @@ export default function FourthSection() {
     ? allBrands.find(b => b.brand.brandName === hoveredBrand)
     : null;
 
+  const selectedBrandData = selectedBrand 
+    ? allBrands.find(b => b.brand.brandName === selectedBrand)
+    : null;
+
   if (isLoading) {
     return (
       <section className={styles.brandsSection}>
         <div className="container">
           <div className={styles.header}>
-            <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+            <h2 className={styles.title}>1000+ POTENTIAL CREATIVES</h2>
           </div>
           <div style={{ textAlign: 'center', padding: '3rem 0' }}>
             <p>Loading brands...</p>
@@ -274,7 +307,7 @@ export default function FourthSection() {
       <section className={styles.brandsSection}>
         <div className="container">
           <div className={styles.header}>
-            <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+            <h2 className={styles.title}>1000+ POTENTIAL CREATIVES</h2>
           </div>
           <div style={{ textAlign: 'center', padding: '3rem 0' }}>
             <p>No brands available</p>
@@ -288,7 +321,7 @@ export default function FourthSection() {
     <section className={styles.brandsSection}>
       <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+          <h2 className={styles.title}>1000+ POTENTIAL CREATIVES</h2>
         </div>
 
         <div 
@@ -327,7 +360,7 @@ export default function FourthSection() {
                   }}
                 >
                   <div className={styles.brandLogoWrapper}>
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <div className={styles.logoSquare}>
                       <img
                         src={getLogoUrl(brandItem)}
                         alt={brandItem.brand.brandName}
@@ -373,7 +406,8 @@ export default function FourthSection() {
           </div>
         )}
 
-        {hoveredBrand && hoveredBrandData && (() => {
+        {/* Desktop tooltip */}
+        {!isMobile && hoveredBrand && hoveredBrandData && (() => {
           const testimonial = getTestimonial(hoveredBrandData);
           if (!testimonial) return null;
 
@@ -400,8 +434,64 @@ export default function FourthSection() {
                   <div className={styles.jobTitle}>{testimonial.jobTitle}</div>
                 </div>
               </div>
-              <div className={styles.quote}>"{testimonial.quote}"</div>
+              <div className={styles.quote}>
+                "{testimonial.quote}"
+                <button 
+                  className={styles.moreButton}
+                  onClick={(e) => handleMoreClick(testimonial.resource, e)}
+                >
+                  More
+                </button>
+              </div>
             </div>
+          );
+        })()}
+
+        {/* Mobile modal */}
+        {isMobile && selectedBrand && selectedBrandData && (() => {
+          const testimonial = getTestimonial(selectedBrandData);
+          if (!testimonial) return null;
+
+          return (
+            <>
+              <div 
+                className={styles.modalOverlay}
+                onClick={closeModal}
+              />
+              <div className={styles.mobileModal}>
+                <button 
+                  className={styles.closeButton}
+                  onClick={closeModal}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+                <div className={styles.tooltipHeader}>
+                  <img
+                    src={getAvatarUrl(testimonial, selectedBrandData.segmentName)}
+                    alt={testimonial.fullName}
+                    className={styles.avatar}
+                    onError={() => handleImageError(`avatar-${selectedBrandData.segmentName}-${testimonial.brandName}`)}
+                  />
+                  <div className={styles.tooltipInfo}>
+                    <div className={styles.representative}>
+                      {testimonial.representative}
+                    </div>
+                    <div className={styles.fullName}>{testimonial.fullName}</div>
+                    <div className={styles.jobTitle}>{testimonial.jobTitle}</div>
+                  </div>
+                </div>
+                <div className={styles.quote}>
+                  "{testimonial.quote}"
+                  <button 
+                    className={styles.moreButton}
+                    onClick={(e) => handleMoreClick(testimonial.resource, e)}
+                  >
+                    More
+                  </button>
+                </div>
+              </div>
+            </>
           );
         })()}
       </div>
