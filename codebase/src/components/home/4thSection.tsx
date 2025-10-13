@@ -43,6 +43,7 @@ export default function FourthSection() {
   const [isLoading, setIsLoading] = useState(true);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const tooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Hardcoded list of segment folders
   const SEGMENT_FOLDERS = ['entertainment', 'fashion', 'filming', 'music'];
@@ -206,6 +207,12 @@ export default function FourthSection() {
   const handleMouseEnter = (brandItem: typeof allBrands[0], event: React.MouseEvent) => {
     if (isMobile) return;
     
+    // Clear any existing timeout
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current);
+      tooltipTimeoutRef.current = null;
+    }
+    
     const testimonial = getTestimonial(brandItem);
     if (testimonial) {
       const rect = event.currentTarget.getBoundingClientRect();
@@ -219,8 +226,26 @@ export default function FourthSection() {
 
   const handleMouseLeave = () => {
     if (!isMobile) {
-      setHoveredBrand(null);
+      // Add delay before hiding tooltip
+      tooltipTimeoutRef.current = setTimeout(() => {
+        setHoveredBrand(null);
+      }, 500); // 500ms delay
     }
+  };
+
+  const handleTooltipMouseEnter = () => {
+    // Cancel hide timeout when mouse enters tooltip
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current);
+      tooltipTimeoutRef.current = null;
+    }
+  };
+
+  const handleTooltipMouseLeave = () => {
+    // Hide tooltip when mouse leaves it
+    tooltipTimeoutRef.current = setTimeout(() => {
+      setHoveredBrand(null);
+    }, 300);
   };
 
   const handleBrandClick = (brandItem: typeof allBrands[0]) => {
@@ -418,6 +443,8 @@ export default function FourthSection() {
                 left: `${tooltipPosition.x}px`,
                 top: `${tooltipPosition.y}px`
               }}
+              onMouseEnter={handleTooltipMouseEnter}
+              onMouseLeave={handleTooltipMouseLeave}
             >
               <div className={styles.tooltipHeader}>
                 <img
@@ -459,13 +486,6 @@ export default function FourthSection() {
                 onClick={closeModal}
               />
               <div className={styles.mobileModal}>
-                <button 
-                  className={styles.closeButton}
-                  onClick={closeModal}
-                  aria-label="Close"
-                >
-                  ×
-                </button>
                 <div className={styles.tooltipHeader}>
                   <img
                     src={getAvatarUrl(testimonial, selectedBrandData.segmentName)}
