@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
+import styles from './4thSection.module.css';
 
 // Brand testimonial data structure
 interface Testimonial {
@@ -60,7 +61,6 @@ export default function FourthSection() {
   const loadAllBrands = async () => {
     const allBrands: { segmentName: string; brand: BrandItem }[] = [];
     
-    // Load each segment's data
     for (const segmentFolder of SEGMENT_FOLDERS) {
       const segmentData = await loadSegmentData(segmentFolder);
       
@@ -74,13 +74,11 @@ export default function FourthSection() {
       }
     }
     
-    console.log('Loaded brands:', allBrands.length);
     return allBrands;
   };
 
   // Random selection function
   const selectRandomBrands = (allBrands: { segmentName: string; brand: BrandItem }[]) => {
-    // Group brands by segment
     const brandsBySegment: Record<string, typeof allBrands> = {};
     allBrands.forEach(item => {
       if (!brandsBySegment[item.segmentName]) {
@@ -91,7 +89,6 @@ export default function FourthSection() {
 
     const selected: typeof allBrands = [];
     
-    // Pick 1-3 random brands from each segment
     Object.entries(brandsBySegment).forEach(([segment, brands]) => {
       const count = Math.floor(Math.random() * 3) + 1;
       const shuffled = [...brands].sort(() => Math.random() - 0.5);
@@ -99,26 +96,20 @@ export default function FourthSection() {
       selected.push(...picked);
     });
     
-    // Shuffle the final selection
     return selected.sort(() => Math.random() - 0.5);
   };
 
-  // Initialize brands on mount
   useEffect(() => {
     const initBrands = async () => {
       const allBrands = await loadAllBrands();
       if (allBrands.length > 0) {
         const randomBrands = selectRandomBrands(allBrands);
         setDisplayedBrands(randomBrands);
-        console.log('Displaying brands:', randomBrands.length);
-      } else {
-        console.error('No brands loaded!');
       }
     };
     
     initBrands();
     
-    // Check if mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 996);
     };
@@ -129,19 +120,16 @@ export default function FourthSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Calculate pagination - 3 rows × 5 logos (desktop) or 3 rows × 3 logos (mobile)
-  const brandsPerPage = isMobile ? 9 : 15; // 3×3 or 3×5
+  const brandsPerPage = isMobile ? 9 : 15;
   const totalPages = Math.ceil(displayedBrands.length / brandsPerPage);
   const startIndex = currentPage * brandsPerPage;
   const endIndex = startIndex + brandsPerPage;
   const currentBrands = displayedBrands.slice(startIndex, endIndex);
 
-  // Get testimonial for a brand
   const getTestimonial = (brandItem: typeof displayedBrands[0]): Testimonial | undefined => {
     return brandItem.brand.testimonial;
   };
 
-  // Get logo URL with fallback
   const getLogoUrl = (brandItem: typeof displayedBrands[0]): string => {
     const errorKey = `logo-${brandItem.segmentName}-${brandItem.brand.brandName}`;
     
@@ -149,16 +137,13 @@ export default function FourthSection() {
       return DEFAULT_LOGO;
     }
     
-    // Priority: 1. JSON logoUrl, 2. Local file path, 3. Fallback
     if (brandItem.brand.logoUrl) {
       return brandItem.brand.logoUrl;
     }
     
-    // Default path: /brands/{segment}/{brandname}-brand-logo.svg
     return `/brands/${brandItem.segmentName}/${brandItem.brand.brandName}-brand-logo.svg`;
   };
 
-  // Get avatar URL with fallback
   const getAvatarUrl = (testimonial: Testimonial, segmentName: string): string => {
     const errorKey = `avatar-${segmentName}-${testimonial.brandName}`;
     
@@ -166,22 +151,17 @@ export default function FourthSection() {
       return DEFAULT_AVATAR;
     }
     
-    // If avatar is a URL or starts with /, use it directly
     if (testimonial.avatar && (testimonial.avatar.startsWith('http') || testimonial.avatar.startsWith('/'))) {
       return testimonial.avatar;
     }
     
-    // Otherwise, construct path: /brands/{segment}/{brandname}-avatar.svg
     return `/brands/${segmentName}/${testimonial.brandName}-avatar.svg`;
   };
 
-  // Handle image load error
   const handleImageError = (errorKey: string) => {
-    console.log('Image error:', errorKey);
     setImageErrors(prev => ({ ...prev, [errorKey]: true }));
   };
 
-  // Handle mouse enter on brand logo
   const handleMouseEnter = (brandItem: typeof displayedBrands[0], event: React.MouseEvent) => {
     const testimonial = getTestimonial(brandItem);
     if (testimonial) {
@@ -194,12 +174,10 @@ export default function FourthSection() {
     }
   };
 
-  // Handle mouse leave
   const handleMouseLeave = () => {
     setHoveredBrand(null);
   };
 
-  // Navigation handlers
   const goToNextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
   };
@@ -212,7 +190,6 @@ export default function FourthSection() {
     setCurrentPage(page);
   };
 
-  // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -232,19 +209,13 @@ export default function FourthSection() {
     }
   };
 
-  // Find the hovered brand data for tooltip
   const hoveredBrandData = hoveredBrand 
     ? displayedBrands.find(b => b.brand.brandName === hoveredBrand)
     : null;
 
-  // Show loading state if no brands yet
   if (displayedBrands.length === 0) {
     return (
-      <section className="brands-section" style={{
-        padding: '4rem 0',
-        backgroundColor: 'var(--ifm-background-color)',
-        textAlign: 'center'
-      }}>
+      <section className={styles.brandsSection}>
         <div className="container">
           <p>Loading brands...</p>
         </div>
@@ -253,331 +224,116 @@ export default function FourthSection() {
   }
 
   return (
-    <section className="brands-section">
-      <style>{`
-        .brands-section {
-          padding: 4rem 0;
-          background-color: var(--ifm-background-color);
-          position: relative;
-        }
-        
-        .brands-section .brands-header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-        
-        .brands-section .brands-title {
-          font-size: 1.5rem;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          color: var(--ifm-heading-color);
-          margin: 0;
-        }
-        
-        .brands-section .brands-container {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 2rem 0;
-          min-height: 400px;
-        }
-        
-        .brands-section .brands-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 2rem 1.5rem;
-          max-width: 1200px;
-          width: 100%;
-          justify-items: center;
-          align-items: center;
-          padding: 0 5rem;
-        }
-        
-        .brands-section .brand-container {
-          position: relative;
-          cursor: pointer;
-          transition: transform 0.3s ease;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        .brands-section .brand-container:hover {
-          transform: scale(1.08);
-        }
-        
-        .brands-section .brand-logo-wrapper {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 1rem;
-          width: 100%;
-          height: 100px;
-        }
-        
-        .brands-section .brand-logo {
-          height: 70px;
-          width: auto;
-          max-width: 160px;
-          object-fit: contain;
-          filter: grayscale(100%) brightness(0.5) sepia(100%) hue-rotate(10deg) saturate(5);
-          opacity: 0.7;
-          transition: all 0.3s ease;
-        }
-        
-        .brands-section .brand-container:hover .brand-logo {
-          filter: none;
-          opacity: 1;
-        }
-        
-        .brands-section .brand-label {
-          position: absolute;
-          bottom: 5px;
-          left: 5px;
-          background-color: #FF6D00;
-          color: white;
-          padding: 0.15rem 0.4rem;
-          border-radius: 6px;
-          font-size: 0.55rem;
-          font-weight: 600;
-          white-space: nowrap;
-          box-shadow: 0 1px 4px rgba(255, 109, 0, 0.3);
-          z-index: 5;
-        }
-        
-        .brands-section .segment-label {
-          position: absolute;
-          top: 5px;
-          right: 5px;
-          background-color: #FF8A33;
-          color: white;
-          padding: 0.15rem 0.4rem;
-          border-radius: 6px;
-          font-size: 0.55rem;
-          font-weight: 600;
-          white-space: nowrap;
-          box-shadow: 0 1px 4px rgba(255, 138, 51, 0.3);
-          z-index: 5;
-          text-transform: capitalize;
-        }
-        
-        .brands-section .nav-button {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: white;
-          border: 2px solid var(--ifm-color-emphasis-300);
-          border-radius: 50%;
-          width: 48px;
-          height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          line-height: 1;
-          color: var(--ifm-color-emphasis-700);
-          cursor: pointer;
-          transition: all 0.3s ease;
-          z-index: 10;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          padding: 0;
-        }
-        
-        .brands-section .nav-button:hover {
-          background: var(--ifm-color-primary);
-          color: white;
-          border-color: var(--ifm-color-primary);
-          transform: translateY(-50%) scale(1.1);
-        }
-        
-        .brands-section .nav-button:active {
-          transform: translateY(-50%) scale(0.95);
-        }
-        
-        .brands-section .nav-button-left {
-          left: 0;
-        }
-        
-        .brands-section .nav-button-right {
-          right: 0;
-        }
-        
-        .brands-section .brands-pagination {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.75rem;
-          margin-top: 2rem;
-        }
-        
-        .brands-section .pagination-dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          border: 2px solid var(--ifm-color-emphasis-400);
-          background: transparent;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          padding: 0;
-        }
-        
-        .brands-section .pagination-dot:hover {
-          border-color: var(--ifm-color-primary);
-          transform: scale(1.2);
-        }
-        
-        .brands-section .pagination-dot-active {
-          background: var(--ifm-color-primary);
-          border-color: var(--ifm-color-primary);
-          width: 12px;
-          height: 12px;
-        }
-        
-        .brands-section .testimonial-tooltip {
-          position: fixed;
-          transform: translate(-50%, calc(-100% - 20px));
-          background: white;
-          border-radius: 12px;
-          padding: 1.5rem;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-          z-index: 1000;
-          min-width: 340px;
-          max-width: 400px;
-          pointer-events: none;
-          animation: fadeInTooltip 0.2s ease;
-        }
-        
-        @keyframes fadeInTooltip {
-          from {
-            opacity: 0;
-            transform: translate(-50%, calc(-100% - 10px));
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, calc(-100% - 20px));
-          }
-        }
-        
-        .brands-section .testimonial-tooltip::after {
-          content: '';
-          position: absolute;
-          bottom: -8px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-top: 10px solid white;
-        }
-        
-        .brands-section .tooltip-header {
-          display: flex;
-          gap: 1rem;
-          margin-bottom: 1rem;
-          align-items: flex-start;
-        }
-        
-        .brands-section .tooltip-avatar {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          object-fit: cover;
-          flex-shrink: 0;
-          border: 3px solid var(--ifm-color-primary-lighter);
-        }
-        
-        .brands-section .tooltip-info {
-          flex: 1;
-        }
-        
-        .brands-section .tooltip-representative {
-          font-size: 0.75rem;
-          color: var(--ifm-color-primary);
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          margin-bottom: 0.25rem;
-        }
-        
-        .brands-section .tooltip-fullname {
-          font-size: 1rem;
-          font-weight: 700;
-          color: var(--ifm-heading-color);
-          margin-bottom: 0.25rem;
-        }
-        
-        .brands-section .tooltip-jobtitle {
-          font-size: 0.85rem;
-          color: var(--ifm-color-emphasis-600);
-          font-weight: 500;
-        }
-        
-        .brands-section .tooltip-quote {
-          font-size: 0.95rem;
-          line-height: 1.6;
-          color: var(--ifm-font-color-base);
-          font-style: italic;
-          padding-top: 0.75rem;
-          border-top: 1px solid var(--ifm-color-emphasis-200);
-        }
-        
-        [data-theme='dark'] .brands-section .nav-button {
-          background: #2a2a2a;
-          border-color: var(--ifm-color-emphasis-500);
-          color: var(--ifm-color-emphasis-700);
-        }
-        
-        [data-theme='dark'] .brands-section .nav-button:hover {
-          background: var(--ifm-color-primary);
-          color: white;
-          border-color: var(--ifm-color-primary);
-        }
-        
-        [data-theme='dark'] .brands-section .testimonial-tooltip {
-          background: #2a2a2a;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        [data-theme='dark'] .brands-section .testimonial-tooltip::after {
-          border-top-color: #2a2a2a;
-        }
-        
-        [data-theme='dark'] .brands-section .tooltip-quote {
-          border-top-color: var(--ifm-color-emphasis-300);
-        }
-        
-        @media (max-width: 996px) {
-          .brands-section {
-            padding: 3rem 0;
-          }
-          
-          .brands-section .brands-title {
-            font-size: 1.1rem;
-            padding: 0 1rem;
-            line-height: 1.4;
-          }
-          
-          .brands-section .brands-container {
-            min-height: 500px;
-            padding: 1rem 0;
-          }
-          
-          .brands-section .brands-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem 1rem;
-            padding: 0 2rem;
-            max-width: 100%;
-          }
-          
-          .brands-section .brand-container {
-            padding: 0.5rem 0;
-          }
-          
-          .brands-section .brand-logo {
-            height: 60px;
-            max-width: 140px;
-          }
+    <section className={styles.brandsSection}>
+      <div className="container">
+        <div className={styles.header}>
+          <h2 className={styles.title}>CHOSEN BY 200+ BRANDS AND SUPPLIERS</h2>
+        </div>
+
+        <div 
+          className={styles.brandsContainer}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {!isMobile && totalPages > 1 && (
+            <button
+              className={clsx(styles.navButton, styles.navButtonLeft)}
+              onClick={goToPrevPage}
+              aria-label="Previous brands"
+            >
+              ‹
+            </button>
+          )}
+
+          <div className={styles.brandsGrid}>
+            {currentBrands.map((brandItem, index) => {
+              const testimonial = getTestimonial(brandItem);
+
+              return (
+                <div
+                  key={`${brandItem.segmentName}-${brandItem.brand.brandName}-${index}`}
+                  className={styles.brandContainer}
+                  onMouseEnter={(e) => handleMouseEnter(brandItem, e)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className={styles.brandLogoWrapper}>
+                    <img
+                      src={getLogoUrl(brandItem)}
+                      alt={brandItem.brand.brandName}
+                      className={styles.brandLogo}
+                      onError={() => handleImageError(`logo-${brandItem.segmentName}-${brandItem.brand.brandName}`)}
+                    />
+                    {testimonial && (
+                      <div className={styles.label}>
+                        {testimonial.labelName}
+                      </div>
+                    )}
+                    <div className={styles.segmentLabel}>
+                      {brandItem.segmentName}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {!isMobile && totalPages > 1 && (
+            <button
+              className={clsx(styles.navButton, styles.navButtonRight)}
+              onClick={goToNextPage}
+              aria-label="Next brands"
+            >
+              ›
+            </button>
+          )}
+        </div>
+
+        {totalPages > 1 && (
+          <div className={styles.pagination}>
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                className={clsx(styles.dot, index === currentPage && styles.dotActive)}
+                onClick={() => goToPage(index)}
+                aria-label={`Go to page ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {hoveredBrand && hoveredBrandData && (() => {
+          const testimonial = getTestimonial(hoveredBrandData);
+          if (!testimonial) return null;
+
+          return (
+            <div
+              className={styles.testimonialTooltip}
+              style={{
+                left: `${tooltipPosition.x}px`,
+                top: `${tooltipPosition.y}px`
+              }}
+            >
+              <div className={styles.tooltipHeader}>
+                <img
+                  src={getAvatarUrl(testimonial, hoveredBrandData.segmentName)}
+                  alt={testimonial.fullName}
+                  className={styles.avatar}
+                  onError={() => handleImageError(`avatar-${hoveredBrandData.segmentName}-${testimonial.brandName}`)}
+                />
+                <div className={styles.tooltipInfo}>
+                  <div className={styles.representative}>
+                    {testimonial.representative}
+                  </div>
+                  <div className={styles.fullName}>{testimonial.fullName}</div>
+                  <div className={styles.jobTitle}>{testimonial.jobTitle}</div>
+                </div>
+              </div>
+              <div className={styles.quote}>"{testimonial.quote}"</div>
+            </div>
+          );
+        })()}
+      </div>
+    </section>
+  );
+}
