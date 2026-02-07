@@ -1,7 +1,6 @@
-.brandsSection {
+.contactSection {
   padding: 4rem 0;
   background-color: var(--ifm-background-color);
-  position: relative;
 }
 
 .header {
@@ -10,565 +9,66 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
   color: var(--ifm-heading-color);
-  margin: 0;
 }
 
-.brandsContainer {
-  position: relative;
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
-  min-height: 450px;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.brandsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2rem 1.5rem;
-  max-width: 1200px;
-  width: 100%;
-  justify-items: center;
-  align-items: center;
-  padding: 0 5rem;
-}
-
-.brandContainer {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  width: 100%;
+.formGroup {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.brandContainer:hover {
-  transform: scale(1.08);
-}
-
-.brandContainer:focus {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
-}
-
-.brandLogoWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-}
-
-.logoSquare {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.brandContainer:hover .logoSquare {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-.brandLogo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: grayscale(100%) brightness(0.5) sepia(100%) hue-rotate(10deg) saturate(5);
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.brandContainer:hover .brandLogo {
-  filter: none;
-  opacity: 1;
-}
-
-.label {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
-  transform: translateX(-50%);
-  background-color: #FF6D00;
-  color: white;
-  padding: 0.15rem 0.4rem;
-  border-radius: 6px;
-  font-size: 0.55rem;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(255, 109, 0, 0.3);
-  z-index: 5;
-}
-
-.segmentLabel {
-  position: absolute;
-  top: 5px;
-  right: 0;
-  transform: translateX(50%);
-  background-color: #FF8A33;
-  color: white;
-  padding: 0.15rem 0.4rem;
-  border-radius: 6px;
-  font-size: 0.55rem;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(255, 138, 51, 0.3);
-  z-index: 5;
-  text-transform: capitalize;
-}
-
-/* Navigation Buttons */
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  border: 2px solid var(--ifm-color-emphasis-300);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--ifm-color-emphasis-700);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 0;
-}
-
-.navButton:hover {
-  background: var(--ifm-color-primary);
-  color: white;
-  border-color: var(--ifm-color-primary);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.navButton:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-.navButtonLeft {
-  left: 0;
-}
-
-.navButtonRight {
-  right: 0;
-}
-
-/* Pagination Dots */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid var(--ifm-color-emphasis-400);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.dot:hover {
-  border-color: var(--ifm-color-primary);
-  transform: scale(1.2);
-}
-
-.dotActive {
-  background: var(--ifm-color-primary);
-  border-color: var(--ifm-color-primary);
-  width: 12px;
-  height: 12px;
-}
-
-/* Testimonial Tooltip */
-.testimonialTooltip {
-  position: fixed;
-  transform: translate(-50%, calc(-100% - 20px));
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  min-width: 340px;
-  max-width: 400px;
-  pointer-events: auto;
-  animation: fadeIn 0.2s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, calc(-100% - 10px));
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, calc(-100% - 20px));
-  }
-}
-
-.testimonialTooltip::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
-}
-
-.tooltipHeader {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  align-items: flex-start;
-}
-
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 3px solid var(--ifm-color-primary-lighter);
-}
-
-.tooltipInfo {
-  flex: 1;
-}
-
-.representative {
-  font-size: 0.75rem;
-  color: var(--ifm-color-primary);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
-}
-
-.fullName {
+.formGroup label {
   font-size: 1rem;
-  font-weight: 700;
-  color: var(--ifm-heading-color);
-  margin-bottom: 0.25rem;
-}
-
-.jobTitle {
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-600);
-  font-weight: 500;
-}
-
-.quote {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--ifm-font-color-base);
-  font-style: italic;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  position: relative;
-}
-
-.moreButton {
-  display: inline;
-  margin-left: 0.5rem;
-  padding: 0;
-  background: none;
-  color: #FF6D00;
-  border: none;
-  font-size: 0.95rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-style: normal;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-emphasis-800);
 }
 
-.moreButton:hover {
-  color: #FF8A33;
-  text-decoration: underline;
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--ifm-background-color-secondary);
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.3s ease;
 }
 
-/* Dark mode support */
-[data-theme='dark'] .navButton {
-  background: #2a2a2a;
-  border-color: var(--ifm-color-emphasis-500);
-  color: var(--ifm-color-emphasis-700);
-}
-
-[data-theme='dark'] .navButton:hover {
-  background: var(--ifm-color-primary);
-  color: white;
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
   border-color: var(--ifm-color-primary);
 }
 
-[data-theme='dark'] .testimonialTooltip {
-  background: #2a2a2a;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+.formGroup textarea {
+  min-height: 150px;
+  resize: vertical;
 }
 
-[data-theme='dark'] .testimonialTooltip::after {
-  border-top-color: #2a2a2a;
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
 }
 
-[data-theme='dark'] .quote {
-  border-top-color: var(--ifm-color-emphasis-300);
-}
-
-/* Mobile Modal */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  animation: fadeIn 0.2s ease;
-}
-
-.mobileModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  min-width: 300px;
-  max-width: calc(100vw - 2rem);
-  max-height: calc(80vh);
-  overflow-y: auto;
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -40%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.closeButton {
-  display: none;
-}
-
-[data-theme='dark'] .mobileModal {
-  background: #2a2a2a;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-}
-
-[data-theme='dark'] .modalOverlay {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Mobile Responsive */
-@media (max-width: 996px) {
-  .brandsSection {
-    padding: 3rem 0;
-  }
-
-  .title {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-    line-height: 1.4;
-  }
-
-  .brandsContainer {
-    min-height: 550px;
-    padding: 1rem 0;
-  }
-
-  .brandsGrid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 2.5rem 1rem;
-    padding: 0 2rem;
-    max-width: 100%;
-  }
-
-  .brandContainer {
-    padding: 0.5rem 0;
-  }
-
-  .brandLogoWrapper {
-    height: auto;
-  }
-
-  .logoSquare {
-    width: 100px;
-    height: 100px;
-    padding: 0.75rem;
-  }
-
-  .label {
-    font-size: 0.5rem;
-    padding: 0.12rem 0.35rem;
-  }
-
-  .segmentLabel {
-    font-size: 0.5rem;
-    padding: 0.12rem 0.35rem;
-  }
-
-  .navButton {
-    display: none;
-  }
-
-  .pagination {
-    margin-top: 2.5rem;
-    gap: 1rem;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-  }
-
-  .dotActive {
-    width: 14px;
-    height: 14px;
-  }
-
-  .testimonialTooltip {
-    min-width: 300px;
-    max-width: calc(100vw - 2rem);
-    padding: 1.25rem;
-  }
-
-  .avatar {
-    width: 55px;
-    height: 55px;
-  }
-
-  .fullName {
-    font-size: 0.95rem;
-  }
-
-  .jobTitle {
-    font-size: 0.8rem;
-  }
-
-  .quote {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 1rem;
-  }
-
-  .brandsContainer {
-    min-height: 500px;
-  }
-
-  .brandsGrid {
-    gap: 2rem 0.8rem;
-    padding: 0 1.5rem;
-  }
-
-  .logoSquare {
-    width: 90px;
-    height: 90px;
-    padding: 0.65rem;
-  }
-
-  .brandLogoWrapper {
-    height: auto;
-  }
-
-  .testimonialTooltip {
-    min-width: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brandsSection {
-    padding: 2rem 0;
-  }
-
-  .title {
-    font-size: 0.9rem;
-    padding: 0 0.5rem;
-  }
-
-  .brandsContainer {
-    min-height: 450px;
-  }
-
-  .brandsGrid {
-    gap: 1.5rem 0.5rem;
-    padding: 0 1rem;
-  }
-
-  .logoSquare {
-    width: 80px;
-    height: 80px;
-    padding: 0.5rem;
-  }
-
-  .brandLogoWrapper {
-    height: auto;
-  }
-
-  .label {
-    font-size: 0.45rem;
-    padding: 0.1rem 0.3rem;
-  }
-
-  .segmentLabel {
-    font-size: 0.45rem;
-    padding: 0.1rem 0.3rem;
-  }
-
-  .pagination {
-    gap: 0.8rem;
-    margin-top: 2rem;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  .dotActive {
-    width: 12px;
-    height: 12px;
-  }
+.submitButton:hover {
+  background-color: var(--ifm-color-primary-dark);
 }
